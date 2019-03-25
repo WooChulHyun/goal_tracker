@@ -1,3 +1,35 @@
+//form 구현
+function closebtn(){
+    self.close();
+    }
+    
+    $(".form").submit(function(e){
+    e.preventDefault();
+    });
+    
+    $(".submitbtn").click(function() {
+    if (document.getElementsByTagName("input").goals.value === "" && document.getElementsByTagName("input").rewards.value === ""){
+    alert("목표와 리워드를 입력해주세요");
+    }
+    else if (document.getElementsByTagName("input").goals.value === ""){
+    alert("목표를 입력해주세요");
+    }
+    
+    else if(document.getElementsByTagName("input").rewards.value === ""){
+    alert("리워드를 입력해주세요");
+    }
+    });
+
+
+    $("#goalbtn").click(function() {
+        $("#modalbtn").click();
+    });
+
+    $(document).ready(function() {
+        $(".mdbt").hide();
+    });
+    
+// 스탬프 구현
 var num = 31;
 $('.test_btn').click(function(){
     for(i=1; i<=num; i++ ){
@@ -15,6 +47,7 @@ $('.test_btn').click(function(){
     });
 });
 
+// 목표 저장
 var count = 0;
 
 $(function() {
