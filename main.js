@@ -9,8 +9,25 @@ $(function() {
                 return false;
             }
         }
-        var form_content = $("#form_sub1").serialize();
-        form_content = decodeURIComponent(form_content);
+
+        var content = {};
+        content["goals"] = $("#goals").val();
+        content["rewards"] = $("#rewards").val();
+        content["numbs"] = $("#numbs").val();
+        content["months"] = $("#months").val();
+        console.log(content);
+        var content_string = JSON.stringify(content);
+
+        form_content = decodeURIComponent(content_string);
         localStorage.setItem(storage_key, form_content);
+
+        var content_string_load = localStorage.getItem(storage_key);
+        var content_dict = JSON.parse(content_string_load);
+        for (var key in content_dict) {
+            if (content_dict[key] === "") {
+                delete content_dict[key];
+            }
+        }
+        console.log(content_dict);
     });
 });
