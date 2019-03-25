@@ -1,0 +1,8 @@
+#my_container {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 0.8fr 3fr 1fr;
+}
+.grid_sections {
+    border: 1px solid black;
+}
