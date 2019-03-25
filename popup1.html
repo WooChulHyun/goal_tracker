@@ -14,27 +14,22 @@
 
 
 
-    <input type="text" placeholder="목표를 입력해주세요." name="input1" class="goal">
-    <br>
-    <input type="text" placeholder="리워드를 입력하세요" name="input2" class="reward">
-
-    <br>   
-    <div class="count">
-        <p>횟수</p>
-        <form class="form">
-            <input type="number" name="points" step="5" max="100">
-            <input type="submit" class="submitbtn">
-        </form>
-    </div>
-
-    <br>
-    <div class="month">
-        <p>월별</p>
-        <form>
-            <input type="number" name="points" step="1" min="28" max="31">
-            <input type="submit" class="submitbtn">
-        </form>
-    </div>
+    <form id="form_sub1" class="form">
+        <div class="count">
+            <input type="text" placeholder="목표를 입력해주세요." name="goals" id="goals" class="goal">
+            <br>
+            <input type="text" placeholder="리워드를 입력하세요" name="rewards" class="reward">
+            <br>   
+            <p>횟수</p>
+            <input type="number" name="numbs" step="5" max="100">
+            <br>
+        </div>
+        <div class="month">
+            <p>월별</p>
+            <input type="number" name="months" step="1" min="28" max="31">
+        </div>
+        <input type="submit" id="btn_sub1" class="submitbtn">
+    </form>
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -50,19 +45,20 @@
     });
 
     $(".submitbtn").click(function() {
-        if (document.getElementsByTagName("input").input1.value === "" || document.getElementsByTagName("input").input1.value === ""){
+        if (document.getElementsByTagName("input").goals.value === "" && document.getElementsByTagName("input").rewards.value === ""){
         alert("목표와 리워드를 입력해주세요")
         }
-        else if (document.getElementsByTagName("input").input1.value === ""){
+        else if (document.getElementsByTagName("input").goals.value === ""){
         alert("목표를 입력해주세요")
         }
 
-        else if(document.getElementsByTagName("input").input2.value === ""){
+        else if(document.getElementsByTagName("input").rewards.value === ""){
         alert("리워드를 입력해주세요")
         }
     })
 
     </script>
+    <script src="main.js"></script>
 </body>
 
 </html>
