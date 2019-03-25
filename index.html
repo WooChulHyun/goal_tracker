@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-        
     <head>
         <meta charset="utf-8" />
         <title>Page Title</title>
@@ -31,92 +30,117 @@
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     </head>
     <body>
-            <nav class="navbar sticky-top navbar-dark bg-primary">
-                    <h1> Goal Tracker </h1>
-                    <button type="button" class="btn btn-outline-light" style="float:right" style="float:right" id="goalbtn">Add Goal</button>
-                </nav>
-                  
-                  <button type="button" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo" id="modalbtn" class="mdbt"></button>
+        <nav class="navbar sticky-top navbar-dark bg-primary">
+            <h1>Goal Tracker</h1>
+            <button
+                type="button"
+                class="btn btn-outline-light"
+                style="float:right"
+                style="float:right"
+                id="goalbtn"
+            >
+                Add Goal
+            </button>
+        </nav>
 
-                  
-                  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-                          <input type="button" value="X" onclick="closebtn()">
-                          <br>
-                      
-                      
-                      
-                          <input type="text" placeholder="목표를 입력해주세요." name="input1" class="goal">
-                          <br>
-                          <input type="text" placeholder="리워드를 입력하세요" name="input2" class="reward">
-                      
-                          <br>   
-                          <div class="count">
-                              <p>횟수</p>
-                              <form class="form">
-                                  <input type="number" name="points" step="5" max="100">
-                                  <input type="submit" class="submitbtn">
-                              </form>
-                            </div>
+        <button
+            type="button"
+            data-toggle="modal"
+            data-target="#exampleModal"
+            data-whatever="@mdo"
+            id="modalbtn"
+            class="mdbt"
+        ></button>
 
-                      
-                          <br>
-                          <div class="month">
-                              <p>월별</p>
-                              <form>
-                                  <input type="number" name="points" step="1" min="28" max="31">
-                                  <input type="submit" class="submitbtn">
-                              </form>
-                          </div>
-                      
-                      
-                          <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-                          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-                          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-                          <script>;
-                          function closebtn(){
-                              self.close();
-                          }
-                      
-                          $(".form").submit(function(e){
-                              e.preventDefault();
-                          });
-                      
-                          $(".submitbtn").click(function() {
-                              if (document.getElementsByTagName("input").input1.value === "" || document.getElementsByTagName("input").input1.value === ""){
-                              alert("목표와 리워드를 입력해주세요")
-                              }
-                              else if (document.getElementsByTagName("input").input1.value === ""){
-                              alert("목표를 입력해주세요")
-                              }
-                      
-                              else if(document.getElementsByTagName("input").input2.value === ""){
-                              alert("리워드를 입력해주세요")
-                              }
-                          })
-                      
-                          </script>
+        <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            New message
+                        </h5>
+                        <input type="button" value="X" onclick="closebtn()">
+    <br>
+
+
+
+    <form id="form_sub1" class="form">
+        <div class="count">
+            <input type="text" placeholder="목표를 입력해주세요." name="goals" id="goals" class="goal">
+            <br>
+            <input type="text" placeholder="리워드를 입력하세요" name="rewards" class="reward">
+            <br>   
+            <p>횟수</p>
+            <input type="number" class="numbs" name="numbs" step="5" max="100">
+            <br>
+        </div>
+        <div class="month">
+            <p>월별</p>
+            <input type="number" class="months" name="months" step="1" min="28" max="31">
+        </div>
+        <input type="submit" id="btn_sub1" class="submitbtn">
+    </form>
                         </div>
-                      </div>
+
+                        <script
+                            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+                            crossorigin="anonymous"
+                        ></script>
+                        <script
+                            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+                            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+                            crossorigin="anonymous"
+                        ></script>
+                        <script
+                            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+                            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+                            crossorigin="anonymous"
+                        ></script>
+                        <script>
+                            function closebtn(){
+        self.close();
+    }
+
+    $(".form").submit(function(e){
+        e.preventDefault();
+    });
+
+    $(".submitbtn").click(function() {
+        if (document.getElementsByTagName("input").goals.value === "" && document.getElementsByTagName("input").rewards.value === ""){
+        alert("목표와 리워드를 입력해주세요")
+        }
+        else if (document.getElementsByTagName("input").goals.value === ""){
+        alert("목표를 입력해주세요")
+        }
+
+        else if(document.getElementsByTagName("input").rewards.value === ""){
+        alert("리워드를 입력해주세요")
+        }
+    })
+
+    </script>
                     </div>
-                  </div>
+                </div>
+            </div>
+        </div>
 
         <script>
-        $("#goalbtn").click(function(){
-            $("#modalbtn").click();
+            $("#goalbtn").click(function() {
+                $("#modalbtn").click();
+            });
 
-        });
-
-        $(document).ready(function(){
-            $(".mdbt").hide();
-
-        });
-        
+            $(document).ready(function() {
+                $(".mdbt").hide();
+            });
         </script>
-
 
         <div id="my_container">
             <div class="grid_sections">
@@ -128,8 +152,5 @@
             <div class="grid_sections"></div>
             <script src="main.js"></script>
         </div>
-    
-    
-
     </body>
 </html>
