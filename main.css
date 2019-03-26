@@ -42,7 +42,7 @@
 .darkblue {
     /* width:500px;
     height:1600px; */
-    background-color: rgb(173, 232, 250);
+    background-color: rgb(154, 214, 224);
 }
 
 .btn-size {
@@ -83,9 +83,6 @@
 /* 왼쪽 리스트 */
 #item-template {
     display: none;
-}
-
-.itemList {
 }
 
 .item {

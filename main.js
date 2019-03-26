@@ -7,63 +7,20 @@ $(".form").submit(function(e) {
     e.preventDefault();
 });
 
-$(".submitbtn").click(function() {
+$(".submitbtn").click(function(e) {
     if (
         document.getElementsByTagName("input").goals.value === "" &&
         document.getElementsByTagName("input").rewards.value === ""
     ) {
         alert("목표와 리워드를 입력해주세요");
+        e.preventDefault();
     } else if (document.getElementsByTagName("input").goals.value === "") {
         alert("목표를 입력해주세요");
+        e.preventDefault();
     } else if (document.getElementsByTagName("input").rewards.value === "") {
         alert("리워드를 입력해주세요");
-    }
-});
-
-$("#goalbtn").click(function() {
-    $("#modalbtn").click();
-});
-
-$(document).ready(function() {
-    $(".mdbt").hide();
-});
-
-$(document).ready(function() {
-    $(".mdbt").hide();
-});
-
-// 목표 저장
-
-var content_dict;
-
-// 스탬프 변수 저장
-var stamp = "/sun.png";
-
-$(function() {
-    for (var i = 1; i <= localStorage.length; i++) {
-        var content_string_load = localStorage.getItem(localStorage.key(i - 1));
-        content_dict = JSON.parse(content_string_load);
-        for (var key in content_dict) {
-            if (content_dict[key] === "") {
-                delete content_dict[key];
-            }
-        }
-        console.log(content_dict);
-        var $list = $(".goal_list");
-        var $elem = $("#item-template")
-            .clone()
-            .removeAttr("id");
-
-        $elem.find(".item-no").html("목표");
-        $elem.find(".item-name").html(content_dict.goals);
-        //$elem
-        //    .find(".item-detail")
-        //    .html(content_dict.numbs, content_dict.months);
-
-        $list.append($elem);
-    }
-
-    $("#btn_sub1").click(function() {
+        e.preventDefault();
+    } else {
         var storage_key = $("#goals").val();
         for (var i = 0; i <= localStorage.length; i++) {
             if (localStorage.key(i) === storage_key) {
@@ -115,9 +72,7 @@ $(function() {
                     '<p class="number">' +
                     i +
                     "</p>" +
-                    '<img class="stamp" src=' +
-                    stamp +
-                    'alt="">' +
+                    '<img class="stamp" src="/sun.png" alt="">' +
                     "</div>"
             );
         }
@@ -137,7 +92,54 @@ $(function() {
                     .addClass("stamp_click");
             }
         });
-    });
+    }
+});
+
+$("#goalbtn").click(function() {
+    $("#modalbtn").click();
+});
+
+$(document).ready(function() {
+    $(".mdbt").hide();
+});
+
+$(document).ready(function() {
+    $(".mdbt").hide();
+});
+
+// 목표 저장
+
+var content_dict;
+
+// 스탬프 변수 저장
+
+$(function() {
+    for (var i = 1; i <= localStorage.length; i++) {
+        var content_string_load = localStorage.getItem(localStorage.key(i - 1));
+        content_dict = JSON.parse(content_string_load);
+        for (var key in content_dict) {
+            if (content_dict[key] === "") {
+                delete content_dict[key];
+            }
+        }
+        console.log(content_dict);
+        var $list = $(".goal_list");
+        var $elem = $("#item-template")
+            .clone()
+            .removeAttr("id");
+
+        $elem.find(".item-no").html("목표");
+        $elem.find(".item-name").html(content_dict.goals);
+        //$elem
+        //    .find(".item-detail")
+        //    .html(content_dict.numbs, content_dict.months);
+
+        $list.append($elem);
+    }
+
+    // $("#btn_sub1").click(function() {
+
+    // });
 });
 
 // 배경화면 색 바꾸기
@@ -158,6 +160,26 @@ $(".blue").click(function() {
 });
 
 //  스탬프 바꾸기
-//  $("img").click(function(){
-//     $('.stamp_click').replaceWith($(this));
-//  });
+$(".stamp_sun").click(function() {
+    $(".stamp").attr("src", "/sun.png");
+});
+
+$(".stamp_monkey").click(function() {
+    $(".stamp").attr("src", "/monkey.png");
+});
+
+$(".stamp_bear").click(function() {
+    $(".stamp").attr("src", "/bear.png");
+});
+
+$(".stamp_ducky").click(function() {
+    $(".stamp").attr("src", "/ducky.png");
+});
+
+$(".stamp_fox").click(function() {
+    $(".stamp").attr("src", "/fox.png");
+});
+
+$(".stamp_hedgehog").click(function() {
+    $(".stamp").attr("src", "/hedgehog.png");
+});
