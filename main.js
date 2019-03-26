@@ -34,6 +34,10 @@ function closebtn(){
 // 목표 저장
 
 var content_dict;
+
+    // 스탬프 변수 저장
+var stamp = "/sun.png";
+
 $(function() {
    $("#btn_sub1").click(function() {
        var storage_key = $("#goals").val();
@@ -63,9 +67,10 @@ $(function() {
            }
        }
        console.log(content_dict);
+       
        for(i=1; i<=content_dict.numbs; i++ ){
             $('.total_stamp').append('<div class="stamp_container '+i+'">' + '<p class="number">'+ i +'</p>' +
-            '<img class="stamp" src="/sun.png" alt="">' 
+            '<img class="stamp" src='+ stamp +' alt="">' 
             + '</div>');
             }
 
@@ -79,55 +84,24 @@ $(function() {
    });
 });
 
+// 배경화면 색 바꾸기
 $(".pink").click(function(){
-    $('.grid_sections2').removeClass('darkblue');
-    $('.grid_sections2').addClass('pink');
-    $('.grid_sections2').removeClass('green');
-    $('.grid_sections2').removeClass('purple');
-    $('.grid_sections2').removeClass('blue');
+    $(".grid_sections2").attr('id','pink');
  });
- 
+
  $(".green").click(function(){
-    $('.grid_sections2').removeClass('darkblue');
-    $('.grid_sections2').removeClass('pink');
-    $('.grid_sections2').addClass('green');
-    $('.grid_sections2').removeClass('purple');
-    $('.grid_sections2').removeClass('blue');
+    $(".grid_sections2").attr('id','green');
  });
- 
- $(".purple").click(function(){
-    $('.grid_sections2').removeClass('darkblue');
-    $('.grid_sections2').addClass('pink');
-    $('.grid_sections2').removeClass('green');
-    $('.grid_sections2').addClass('purple');
-    $('.grid_sections2').removeClass('blue');
+
+ $(".yellow").click(function(){
+    $(".grid_sections2").attr('id','yellow');
  });
- 
+
  $(".blue").click(function(){
-    $('.grid_sections2').removeClass('darkblue');
-    $('.grid_sections2').addClass('pink');
-    $('.grid_sections2').removeClass('green');
-    $('.grid_sections2').removeClass('purple');
-    $('.grid_sections2').addClass('blue');
+    $(".grid_sections2").attr('id','blue');
  });
 
-// console.log(content_dict.numbs);
-
-// 스탬프 구현
-// var num = 31;
-// $('.test_btn').click(function(){
-//     for(i=1; i<=content_dict.numbs; i++ ){
-//         console.log(content_dict.numbs);
-//     $('.total_stamp').append('<div class="stamp_container '+i+'">' + '<p class="number">'+ i +'</p>' +
-//     '<img class="stamp" src="/sun.png" alt="">' 
-//     + '</div>');
-//     }
-
-//     $('.stamp_container').click(function(){
-//         if($(this).find('.stamp').hasClass('stamp_click')){
-//             $(this).find('.stamp').removeClass('stamp_click');
-//         }else{
-//             $(this).find('.stamp').addClass('stamp_click');
-//         }
-//     });
-// });
+//  스탬프 바꾸기
+//  $("img").click(function(){
+//     $('.stamp_click').replaceWith($(this));
+//  });

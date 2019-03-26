@@ -33,31 +33,44 @@
     /* display: block; */
     visibility: visible;
 }
-/* .total_stamp{
-    width: 80%;
-    height: 70%;
-    border: 1px solid black;
-
-} */
 .darkblue{
     /* width:500px;
     height:1600px; */
     background-color: rgb(173, 232, 250);
  }
+ 
 .btn-size{
-border: none;
-width: 90px;
-height: 50px;
+    border: none;
+    width: 90px;
+    height: 50px;
 }
 .pink{
-    background-color: rgb(255, 195, 232);
+    background-color: #fee4e3;
 }
 .green{
-    background-color: rgb(222, 253, 182);
+    background-color: rgb(201, 208, 104);
 }
-.purple{
-    background-color: rgb(186, 159, 236);
+.yellow{
+    background-color: rgb(246, 209, 92);
 }
 .blue{
-    background-color: rgb(173, 232, 250);
+    background-color: rgb(154, 214, 224);
+}
+
+#pink{
+    background-color: #fee4e3;
+}
+#green{
+    background-color: rgb(201, 208, 104);
+}
+#yellow{
+    background-color: rgb(246, 209, 92);
+}
+#blue{
+    background-color: rgb(154, 214, 224);
+}
+
+
+.stamps{
+    margin: 20px;
 }
