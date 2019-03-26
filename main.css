@@ -14,10 +14,10 @@
 .grid_sections3 {
     border: 1px solid black;
 }
-.color_change{
+.color_change {
     display: inline-block;
 }
-.stamp_change{
+.stamp_change {
     display: inline-block;
 }
 
@@ -39,54 +39,50 @@
     /* display: block; */
     visibility: visible;
 }
-.darkblue{
+.darkblue {
     /* width:500px;
     height:1600px; */
     background-color: rgb(154, 214, 224);
- }
- 
-.btn-size{
+}
+
+.btn-size {
     border: none;
     width: 90px;
     height: 50px;
 }
-.pink{
+.pink {
     background-color: #fee4e3;
 }
-.green{
+.green {
     background-color: rgb(201, 208, 104);
 }
-.yellow{
+.yellow {
     background-color: rgb(246, 209, 92);
 }
-.blue{
+.blue {
     background-color: rgb(154, 214, 224);
 }
 
-#pink{
+#pink {
     background-color: #fee4e3;
 }
-#green{
+#green {
     background-color: rgb(201, 208, 104);
 }
-#yellow{
+#yellow {
     background-color: rgb(246, 209, 92);
 }
-#blue{
+#blue {
     background-color: rgb(154, 214, 224);
 }
 
-
-.stamps{
+.stamps {
     margin: 20px;
 }
 
 /* 왼쪽 리스트 */
 #item-template {
     display: none;
-}
-
-.itemList {
 }
 
 .item {
@@ -101,6 +97,11 @@
     border: 1px solid #d2d2d2;
     border-radius: 14px;
     margin: 10px;
+}
+
+.itemList:hover {
+    background-color: yellow;
+    cursor: pointer;
 }
 
 .item-no {
@@ -131,12 +132,11 @@
     animation: progressbar 2s ease-out;
 }
 
-
-@keyframes progressbar { 
-  0%  { 
-    width: 0%;
-  } 
-  100% { 
-    width: 80%;
-  }  
+@keyframes progressbar {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 80%;
+    }
 }
