@@ -63,6 +63,12 @@ $(".submitbtn").click(function(e) {
         //    .html(content_dict.numbs, content_dict.months);
 
         $list.append($elem);
+        
+        if(content_dict.numbs == 0){
+
+        }else{
+            
+        }
 
         for (i = 1; i <= content_dict.numbs; i++) {
             $(".total_stamp").append(
