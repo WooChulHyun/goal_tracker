@@ -14,10 +14,16 @@
 .grid_sections3 {
     border: 1px solid black;
 }
+.color_change{
+    display: inline-block;
+}
+.stamp_change{
+    display: inline-block;
+}
 
 /* 캘린더 내부 스탬프 */
-.stamp_container{
-    width:  100px;
+.stamp_container {
+    width: 100px;
     height: 120px;
     border: 1px solid black;
     text-align: center;
@@ -25,11 +31,11 @@
     margin: 30px;
     background-color: white;
 }
-.stamp{
+.stamp {
     /* display: none; */
     visibility: hidden;
 }
-.stamp_click{
+.stamp_click {
     /* display: block; */
     visibility: visible;
 }
@@ -73,4 +79,49 @@
 
 .stamps{
     margin: 20px;
+}
+
+/* 왼쪽 리스트 */
+#item-template {
+    display: none;
+}
+
+.itemList {
+}
+
+.item {
+    padding: 10px 20px;
+    border: 1px solid #d2d2d2;
+    border-radius: 14px;
+    margin-bottom: 10px;
+}
+
+.itemList {
+    padding: 10px 20px;
+    border: 1px solid #d2d2d2;
+    border-radius: 14px;
+    margin: 10px;
+}
+
+.item-no {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+    color: #a0a0a0;
+    vertical-align: middle;
+    min-width: 17px;
+}
+
+.item-detail {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 30px;
+    vertical-align: middle;
+}
+
+.item-name {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
 }
