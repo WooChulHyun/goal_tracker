@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 var content_dict;
 
-    // 스탬프 변수 저장
+// 스탬프 변수 저장
 var stamp = "/sun.png";
 
 $(function() {
@@ -54,7 +54,7 @@ $(function() {
             .clone()
             .removeAttr("id");
 
-        $elem.find(".item-no").html("목표 " + i);
+        $elem.find(".item-no").html("목표");
         $elem.find(".item-name").html(content_dict.goals);
         //$elem
         //    .find(".item-detail")
@@ -99,7 +99,7 @@ $(function() {
             .clone()
             .removeAttr("id");
 
-        $elem.find(".item-no").html("목표 " + i);
+        $elem.find(".item-no").html("목표");
         $elem.find(".item-name").html(content_dict.goals);
         //$elem
         //    .find(".item-detail")
@@ -107,7 +107,6 @@ $(function() {
 
         $list.append($elem);
 
-        console.log(content_dict);
         for (i = 1; i <= content_dict.numbs; i++) {
             $(".total_stamp").append(
                 '<div class="stamp_container ' +
@@ -116,7 +115,9 @@ $(function() {
                     '<p class="number">' +
                     i +
                     "</p>" +
-                    '<img class="stamp" src='+ stamp+'alt="">' +
+                    '<img class="stamp" src=' +
+                    stamp +
+                    'alt="">' +
                     "</div>"
             );
         }
@@ -140,21 +141,21 @@ $(function() {
 });
 
 // 배경화면 색 바꾸기
-$(".pink").click(function(){
-    $(".grid_sections2").attr('id','pink');
- });
+$(".pink").click(function() {
+    $(".grid_sections2").attr("id", "pink");
+});
 
- $(".green").click(function(){
-    $(".grid_sections2").attr('id','green');
- });
+$(".green").click(function() {
+    $(".grid_sections2").attr("id", "green");
+});
 
- $(".yellow").click(function(){
-    $(".grid_sections2").attr('id','yellow');
- });
+$(".yellow").click(function() {
+    $(".grid_sections2").attr("id", "yellow");
+});
 
- $(".blue").click(function(){
-    $(".grid_sections2").attr('id','blue');
- });
+$(".blue").click(function() {
+    $(".grid_sections2").attr("id", "blue");
+});
 
 //  스탬프 바꾸기
 //  $("img").click(function(){
