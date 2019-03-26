@@ -99,6 +99,11 @@
     margin: 10px;
 }
 
+.itemList:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
 .item-no {
     display: inline-block;
     padding-left: 10px;
@@ -120,4 +125,18 @@
     display: inline-block;
     vertical-align: middle;
     font-size: 20px;
+}
+
+.css-progressbar {
+    width: 80%;
+    animation: progressbar 2s ease-out;
+}
+
+@keyframes progressbar {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 80%;
+    }
 }
