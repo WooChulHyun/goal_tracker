@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<head>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>  
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+
+.css-progressbar {
+    width: 80%;
+    animation: progressbar 2s ease-out;
+}
+
+
+@keyframes progressbar { 
+  0%  { 
+    width: 0%;
+  } 
+  100% { 
+    width: 80%;
+  }  
+}
+
+</style>
+
+
+
+
+<body>
+<nav class="navbar navbar-light sticky-top" style="background-color: #e3f2fd;">
+                <p style="font-size: 15px; text-align: center">My Goal :  <span id="mygoal"></span> </p>
+            </nav>
+            
+            <img src = '2.png'></img>
+            <p style="font-size: 15px; text-align: center">achievement :  
+                        <progress value="denominator" max="molecular"></progress>
+        </p> 
+            <p id="molecular">분모부분</p>
+            <p id="denominator">분자부분</p>
+            
+            <p style="font-size: 15px; text-align: center">Reward :  <span id="myreward"></span> </p>
+            
+            
+            <script>
+                    $(function() {
+                        $(document).on('click', '#btn_sub1', function() {
+                            var a = $('.stamp_click').length;
+                            $('progress[value=molecular]').innerHTML=a;
+                            console.log(a);
+                            $(document).on('click', '.stamp_container', function() {
+                                var b = $('.stamp_click').length;
+                                $('progress[value=denominator]').innerHTML=b;
+                                console.log(b);
+                            })
+                        })
+                    })
+        
+                $(function(){
+                    $(document).on('click', '#btn_sub1', function(){
+                        var c = $('.goal').val();
+                        console.log(c)
+                        document.getElementById('mygoal').innerHTML = c;
+        
+                    var d = $('.reward').val();
+                    console.log(d)
+                    document.getElementById('myreward').innerHTML = d;   
+        
+        
+                    })
+                })
+        
+            </script>
+        
+            
+                        
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
