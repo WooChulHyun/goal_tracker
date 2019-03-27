@@ -2,9 +2,9 @@
 $(document).ready(function() {
     color_load();
 });
-
+var image = [];
 var find_image = function(){
-    var image = [];
+    image = [];
     for (var i = 1; i <= content_dict.numbs; i++) {
         // 이미지 찾음
         if (
@@ -15,7 +15,20 @@ var find_image = function(){
         // 찾은 이미지의 번호들을 로컬에 저장
     }
     console.log(image);
+        // 넣었던 수에 클래스 넣기
+        b = [1, 2, 3, 7];
+        console.log(b);
+            for(i=0; i < image.length; i++){
+                console.log(i);
+                c = image[i];
+                console.log(image[i]);
+                console.log(c);
+                console.log($('.1'))
+                $("." + c).children("img").addClass("stamp_click");
+            };
 }
+
+
 //form 구현
 function listBtnClick() {
     $(".itemList").click(function() {
@@ -381,13 +394,13 @@ var ab = function() {
 
 
 // 넣었던 수에 클래스 넣기
-b = [1, 2, 3, 7];
-    console.log(b);
-        for(i=0; i < b.length; i++){
-            console.log(i);
-            c = b[i];
-            console.log(b[i]);
-            console.log(c);
-            console.log($('.1'))
-            $("." + c).children("img").addClass("stamp_click");
-        };
+// b = [1, 2, 3, 7];
+//     console.log(b);
+//         for(i=0; i < b.length; i++){
+//             console.log(i);
+//             c = b[i];
+//             console.log(b[i]);
+//             console.log(c);
+//             console.log($('.1'))
+//             $("." + c).children("img").addClass("stamp_click");
+//         };
