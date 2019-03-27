@@ -22,7 +22,7 @@ function listBtnClick() {
             }
         }
         document.getElementsByClassName("grid_sections2")[0].id =
-        content_dict["color"];
+            content_dict["color"];
         console.log(content_dict);
         console.log(typeof content_dict);
         var $list1 = $(".total_stamp").empty();
@@ -277,6 +277,7 @@ $(".pink").click(function() {
             color: "pink"
         })
     );
+    localStorage.removeItem("");
 });
 
 $(".green").click(function() {
@@ -294,6 +295,7 @@ $(".green").click(function() {
             color: "green"
         })
     );
+    localStorage.removeItem("");
 });
 
 $(".yellow").click(function() {
@@ -311,6 +313,7 @@ $(".yellow").click(function() {
             color: "yellow"
         })
     );
+    localStorage.removeItem("");
 });
 
 $(".blue").click(function() {
@@ -328,6 +331,7 @@ $(".blue").click(function() {
             color: "blue"
         })
     );
+    localStorage.removeItem("");
 });
 
 // 이미지 경로 저장 test
