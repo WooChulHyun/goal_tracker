@@ -1,14 +1,6 @@
-
-//새로고침 시 자동으로 로드 할 정보
-$(document).ready(function() {
-    color_load();
-});
-
 //form 구현
 function listBtnClick() {
-    
     $(".itemList").click(function() {
-        document.getElementsByClassName('grid_sections2')[0].id = content_dict["color"];
         var class_names = $(this).attr("class");
         var target_class = class_names.substr(
             class_names.indexOf("num_of_items")
@@ -24,6 +16,11 @@ function listBtnClick() {
                 delete content_dict[key];
             }
         }
+
+        document.getElementsByClassName("grid_sections2")[0].id =
+            content_dict["color"];
+        console.log(content_dict, content_dict["color"]);
+
         console.log(content_dict);
         console.log(typeof content_dict);
         var $list1 = $(".total_stamp").empty();
@@ -101,40 +98,37 @@ $(".submitbtn").click(function(e) {
             }
         }
 
+        //     //배경 색 저장
+        // function color_save(){
+        //     var x = document.getElementsByClassName('grid_sections2')[0].id;
+        //     console.log(x);
+        //     var cc_cont = {0 : x};
+        //     var color_content = JSON.stringify(cc_cont)
+        //     localStorage.setItem("colorinfo",color_content);
+        //     return false;
+        //     }
 
-//     //배경 색 저장
-// function color_save(){
-//     var x = document.getElementsByClassName('grid_sections2')[0].id;
-//     console.log(x);
-//     var cc_cont = {0 : x};
-//     var color_content = JSON.stringify(cc_cont)
-//     localStorage.setItem("colorinfo",color_content);
-//     return false;
-//     }
+        // //배경 색 로드
+        // function color_load(){
 
-// //배경 색 로드
-// function color_load(){
+        //     var y = localStorage.getItem("colorinfo");
+        //     console.log(y);
+        //     var loadcolor=JSON.parse(y);
+        //     console.log(loadcolor[0]);
+        //     document.getElementsByClassName('grid_sections2')[0].id = loadcolor[0];
 
-//     var y = localStorage.getItem("colorinfo");
-//     console.log(y);
-//     var loadcolor=JSON.parse(y);
-//     console.log(loadcolor[0]);
-//     document.getElementsByClassName('grid_sections2')[0].id = loadcolor[0];
-    
-//     }
+        //     }
 
-// $(document).on("click",".btn-size",function(){
+        // $(document).on("click",".btn-size",function(){
 
-
-        var x = document.getElementsByClassName('grid_sections2')[0].id;
-        console.log(x)
-        var content={};
+        var x = document.getElementsByClassName("grid_sections2")[0].id;
+        console.log(x);
+        var content = {};
         content["goals"] = $("#goals").val();
         content["rewards"] = $("#rewards").val();
         content["numbs"] = $("#numbs").val();
         content["color"] = x;
 
-        
         console.log(content);
         var content_string = JSON.stringify(content);
 
@@ -151,7 +145,7 @@ $(".submitbtn").click(function(e) {
                 delete content_dict[key];
             }
         }
-       
+
         console.log(content_dict);
         var $list = $(".goal_list");
         var $list1 = $(".total_stamp").empty();
@@ -216,7 +210,6 @@ $(document).ready(function() {
 
 var content_dict;
 
-
 // 스탬프 변수 저장
 
 $(function() {
@@ -250,53 +243,70 @@ $(function() {
 // 배경화면 색 바꾸기
 $(".pink").click(function() {
     $(".grid_sections2").attr("id", "pink");
-    var goalName = $('.grid_sections2').find('#mygoal').text();
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
     var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title)
+    console.log(title);
 
-    localStorage.setItem(goalName, JSON.stringify({
-        ...title,
-        color: 'pink'
-    }))
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "pink"
+        })
+    );
 });
 
 $(".green").click(function() {
     $(".grid_sections2").attr("id", "green");
-    var goalName = $('.grid_sections2').find('#mygoal').text();
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
     var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title)
+    console.log(title);
 
-    localStorage.setItem(goalName, JSON.stringify({
-        ...title,
-        color: 'green'
-    }))
-
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "green"
+        })
+    );
 });
 
 $(".yellow").click(function() {
     $(".grid_sections2").attr("id", "yellow");
-    var goalName = $('.grid_sections2').find('#mygoal').text();
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
     var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title)
+    console.log(title);
 
-    localStorage.setItem(goalName, JSON.stringify({
-        ...title,
-        color: 'yellow'
-    }))
-
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "yellow"
+        })
+    );
 });
 
 $(".blue").click(function() {
     $(".grid_sections2").attr("id", "blue");
-    var goalName = $('.grid_sections2').find('#mygoal').text();
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
     var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title)
+    console.log(title);
 
-    localStorage.setItem(goalName, JSON.stringify({
-        ...title,
-        color: 'blue'
-    }))
-
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "blue"
+        })
+    );
 });
 
 //  스탬프 바꾸기
@@ -323,24 +333,3 @@ $(".stamp_fox").click(function() {
 $(".stamp_hedgehog").click(function() {
     $(".stamp").attr("src", "/hedgehog.png");
 });
-
-
-//배경 색 저장
-function color_save() {
-    var x = document.getElementsByClassName("grid_sections2")[0].id;
-    console.log(x);
-    var cc_cont = { 0: x };
-    var color_content = JSON.stringify(cc_cont);
-    localStorage.setItem("colorinfo", color_content);
-    return false;
-}
-
-//배경 색 로드
-function color_load() {
-    var y = localStorage.getItem("colorinfo");
-    console.log(y);
-    var loadcolor = JSON.parse(y);
-    console.log(loadcolor[0]);
-    document.getElementsByClassName("grid_sections2")[0].id = loadcolor[0];
-}
-
