@@ -30,7 +30,10 @@
         <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     </head>
     <body>
-        <nav class="navbar sticky-top navbar-dark bg-primary" style="position: static;">
+        <nav
+            class="navbar sticky-top navbar-dark bg-primary"
+            style="position: static;"
+        >
             <h1>Goal Tracker</h1>
             <button
                 type="button"
@@ -108,7 +111,6 @@
             </div>
         </div>
 
-
         <div id="my_container">
             <div class="grid_sections1">
                 <div class="goal_list">
@@ -120,25 +122,37 @@
                 </div>
             </div>
             <div id="grid_sections2" class="grid_sections2 darkblue">
-                <nav class="navbar navbar-light sticky-top" style="background-color: #e3f2fd;">
-                    <p style="font-size: 15px; text-align: center">My Goal :  <span id="mygoal"></span> </p>
+                <nav
+                    class="navbar navbar-light sticky-top"
+                    style="background-color: #e3f2fd;"
+                >
+                    <p style="font-size: 15px; text-align: center">
+                        My Goal : <span id="mygoal"></span>
+                    </p>
                 </nav>
-                <div class="total_stamp">
-                    <nav class="navbar navbar-light fixed-bottom" style="background-color: #e3f2fd;">
-                        <p style="font-size: 15px; text-align: center">achievement :  
-                                <progress value="denominator" max="molecular"></progress>
-                        </p> 
+                <div class="total_stamp"></div>
+                <nav
+                    class="navbar navbar-light fixed-bottom"
+                    style="background-color: #e3f2fd;"
+                >
+                    <p style="font-size: 15px; text-align: center">
+                        achievement :
+                        <progress
+                            value="denominator"
+                            max="molecular"
+                        ></progress>
+                    </p>
 
-                        <br>
-                    
-                        <p style="font-size: 15px">Reward :  <span id="myreward"></span> </p>
-                                
-                    </nav>
-                    <!-- <button class="test_btn">click!</button> -->
-                    <!-- <div class="stamp_container">
+                    <br />
+
+                    <p style="font-size: 15px">
+                        Reward : <span id="myreward"></span>
+                    </p>
+                </nav>
+                <!-- <button class="test_btn">click!</button> -->
+                <!-- <div class="stamp_container">
                             <img class="stamp" src="/sun.png" alt="">
                         </div> -->
-                </div>
             </div>
             <div class="grid_sections3">
                 <div class="color_change">
@@ -164,44 +178,50 @@
                     <img src="/bear.png" class="stamps stamp_bear" alt="" />
                     <img src="/ducky.png" class="stamps stamp_ducky" alt="" />
                     <img src="/fox.png" class="stamps stamp_fox" alt="" />
-                    <img src="/hedgehog.png" class="stamps stamp_hedgehog" alt="" />
+                    <img
+                        src="/hedgehog.png"
+                        class="stamps stamp_hedgehog"
+                        alt=""
+                    />
                 </div>
             </div>
         </div>
 
         <script src="main.js"></script>
 
-
         <script>
-                $(function() {
-                    $(document).on('click', '#btn_sub1', function() {
-
-                        var a = $('.stamp_container').length;
-                    $('progress').replaceWith('<progress value="0" max="'+a+'"></progress>')
+            $(function() {
+                $(document).on("click", "#btn_sub1", function() {
+                    var a = $(".stamp_container").length;
+                    $("progress").replaceWith(
+                        '<progress value="0" max="' + a + '"></progress>'
+                    );
                     console.log(a);
-                    $(document).on('click', '.stamp_container', function() {
-                        var b = $('.stamp_click').length;
-                        $('progress').replaceWith('<progress value="'+b+'"max="'+a+'"></progress>')
+                    $(document).on("click", ".stamp_container", function() {
+                        var b = $(".stamp_click").length;
+                        $("progress").replaceWith(
+                            '<progress value="' +
+                                b +
+                                '"max="' +
+                                a +
+                                '"></progress>'
+                        );
                         console.log(b);
-                    })
-                })
-            })
+                    });
+                });
+            });
 
-    
-            $(function(){
-                $(document).on('click', '#btn_sub1', function(){
-                    var c = $('.goal').val();
-                    console.log(c)
-                    document.getElementById('mygoal').innerHTML = c;
-    
-                var d = $('.reward').val();
-                console.log(d)
-                document.getElementById('myreward').innerHTML = d;   
-    
-    
-                })
-            })
-    
+            $(function() {
+                $(document).on("click", "#btn_sub1", function() {
+                    var c = $(".goal").val();
+                    console.log(c);
+                    document.getElementById("mygoal").innerHTML = c;
+
+                    var d = $(".reward").val();
+                    console.log(d);
+                    document.getElementById("myreward").innerHTML = d;
+                });
+            });
         </script>
     </body>
 </html>
