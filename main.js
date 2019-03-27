@@ -2,6 +2,7 @@
 $(document).ready(function() {
     color_load();
 });
+
 var image = [];
 var find_image = function(){
     image = [];
@@ -14,22 +15,16 @@ var find_image = function(){
         }
         // 찾은 이미지의 번호들을 로컬에 저장
     }
-    console.log(image);
-        // 넣었던 수에 클래스 넣기
-        b = [1, 2, 3, 7];
-        console.log(b);
-            for(i=0; i < image.length; i++){
-                console.log(i);
-                c = image[i];
-                console.log(image[i]);
-                console.log(c);
-                console.log($('.1'))
-                $("." + c).children("img").addClass("stamp_click");
-            };
 }
 
+// 이미지 경로 저장 test
+var ab = function() {
+    var stamp_save = $(".stamp").attr("src");
+    console.log(stamp_save);
+};
 
 //form 구현
+// listBtnClick 시작
 function listBtnClick() {
     $(".itemList").click(function() {
         var class_names = $(this).attr("class");
@@ -99,6 +94,7 @@ function listBtnClick() {
         });
     });
 }
+// listBtnClick 끝
 
 function closebtn() {
     self.close();
@@ -331,11 +327,7 @@ $(function() {
         localStorage.removeItem("");
     });
 
-// 이미지 경로 저장 test
-var ab = function() {
-    var stamp_save = $(".stamp").attr("src");
-    console.log(stamp_save);
-};
+
 
 //  스탬프 바꾸기
     $(".stamp_sun").click(function() {
