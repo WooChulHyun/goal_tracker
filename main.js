@@ -1,15 +1,11 @@
-
-//새로고침 시 자동으로 로드 할 정보
-$(document).ready(function() {
-    color_load();
-});
-
 //form 구현
+
+localStorage.removeItem("");
+
+console.log(Object.keys(goals)[0])
 function listBtnClick() {
     
     $(".itemList").click(function() {
-        
-        document.getElementsByClassName('grid_sections2')[0].id = content_dict["color"];
         var class_names = $(this).attr("class");
         var target_class = class_names.substr(
             class_names.indexOf("num_of_items")
@@ -18,16 +14,19 @@ function listBtnClick() {
             .find(".item-name")
             .text();
 
-        var content_string_load = localStorage.getItem(localStorage_key);
+        var content_string_load = localStorage.getItem(localStorage_key);;
         content_dict = JSON.parse(content_string_load);
         for (var key in content_dict) {
             if (content_dict[key] === "") {
                 delete content_dict[key];
             }
         }
+        document.getElementsByClassName('grid_sections2')[0].id = content_dict["color"];
+        console.log("clicked",content_dict["color"]);
+        
         console.log(content_dict);
         console.log(typeof content_dict);
-        var $list1 = $(".total_stamp").empty();
+        var $list = $(".total_stamp").empty();
         for (i = 1; i <= content_dict.numbs; i++) {
             $(".total_stamp").append(
                 '<div class="stamp_container ' +
@@ -135,7 +134,7 @@ $(".submitbtn").click(function(e) {
         content["numbs"] = $("#numbs").val();
         content["color"] = x;
 
-        
+        Object.keys(content)
         console.log(content);
         var content_string = JSON.stringify(content);
 
@@ -155,7 +154,6 @@ $(".submitbtn").click(function(e) {
        
         console.log(content_dict);
         var $list = $(".goal_list");
-        var $list1 = $(".total_stamp").empty();
         var $elem = $("#item-template")
             .clone()
             .removeAttr("id");
@@ -168,7 +166,7 @@ $(".submitbtn").click(function(e) {
         //    .html(content_dict.numbs, content_dict.months);
 
         $list.append($elem);
-        listBtnClick();
+        listBtnClick(); //배경에 영향미침 
 
         for (i = 1; i <= content_dict.numbs; i++) {
             $(".total_stamp").append(
@@ -245,8 +243,10 @@ $(function() {
         $list.append($elem);
     }
 
-    listBtnClick();
+    listBtnClick();//리스트에 영향미침
+
 });
+
 
 // 배경화면 색 바꾸기
 $(".pink").click(function() {
@@ -324,24 +324,4 @@ $(".stamp_fox").click(function() {
 $(".stamp_hedgehog").click(function() {
     $(".stamp").attr("src", "/hedgehog.png");
 });
-
-
-//배경 색 저장
-function color_save() {
-    var x = document.getElementsByClassName("grid_sections2")[0].id;
-    console.log(x);
-    var cc_cont = { 0: x };
-    var color_content = JSON.stringify(cc_cont);
-    localStorage.setItem("colorinfo", color_content);
-    return false;
-}
-
-//배경 색 로드
-function color_load() {
-    var y = localStorage.getItem("colorinfo");
-    console.log(y);
-    var loadcolor = JSON.parse(y);
-    console.log(loadcolor[0]);
-    document.getElementsByClassName("grid_sections2")[0].id = loadcolor[0];
-}
 
