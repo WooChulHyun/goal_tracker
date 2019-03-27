@@ -1,4 +1,26 @@
 //form 구현
+function listBtnClick() {
+    $(".itemList").click(function() {
+        var class_names = $(this).attr("class");
+        var target_class = class_names.substr(
+            class_names.indexOf("num_of_items")
+        );
+        var localStorage_key = $("." + target_class)
+            .find(".item-name")
+            .text();
+
+        var content_string_load = localStorage.getItem(localStorage_key);
+        content_dict = JSON.parse(content_string_load);
+        for (var key in content_dict) {
+            if (content_dict[key] === "") {
+                delete content_dict[key];
+            }
+        }
+        console.log(content_dict);
+        console.log(typeof content_dict);
+    });
+}
+
 function closebtn() {
     self.close();
 }
@@ -20,12 +42,6 @@ $(".submitbtn").click(function(e) {
     } else if (document.getElementsByTagName("input").rewards.value === "") {
         alert("리워드를 입력해주세요");
         e.preventDefault();
-    } else if (
-        document.getElementsByTagName("input").numbs.value !== "" &&
-        document.getElementsByTagName("input").months.value !== ""
-    ) {
-        alert("횟수 또는 월중 하나만 선택해 주세요");
-        e.preventDefault();
     } else {
         var storage_key = $("#goals").val();
         for (var i = 0; i <= localStorage.length; i++) {
@@ -39,7 +55,6 @@ $(".submitbtn").click(function(e) {
         content["goals"] = $("#goals").val();
         content["rewards"] = $("#rewards").val();
         content["numbs"] = $("#numbs").val();
-        content["months"] = $("#months").val();
         console.log(content);
         var content_string = JSON.stringify(content);
 
@@ -62,19 +77,15 @@ $(".submitbtn").click(function(e) {
             .clone()
             .removeAttr("id");
 
-        $elem.find(".item-no").html("목표");
+        $elem.find(".item-no").html("목표" + $(".itemList").length);
         $elem.find(".item-name").html(content_dict.goals);
+        $elem.addClass("num_of_items" + $(".itemList").length);
         //$elem
         //    .find(".item-detail")
         //    .html(content_dict.numbs, content_dict.months);
 
         $list.append($elem);
-        
-        if(content_dict.numbs == 0){
-
-        }else{
-            
-        }
+        listBtnClick();
 
         for (i = 1; i <= content_dict.numbs; i++) {
             $(".total_stamp").append(
@@ -88,6 +99,7 @@ $(".submitbtn").click(function(e) {
                     "</div>"
             );
         }
+
 
         $(".stamp_container").click(function() {
             if (
@@ -140,8 +152,9 @@ $(function() {
             .clone()
             .removeAttr("id");
 
-        $elem.find(".item-no").html("목표");
+        $elem.find(".item-no").html("목표" + $(".itemList").length);
         $elem.find(".item-name").html(content_dict.goals);
+        $elem.addClass("num_of_items" + $(".itemList").length);
         //$elem
         //    .find(".item-detail")
         //    .html(content_dict.numbs, content_dict.months);
@@ -149,9 +162,7 @@ $(function() {
         $list.append($elem);
     }
 
-    // $("#btn_sub1").click(function() {
-
-    // });
+    listBtnClick();
 });
 
 // 배경화면 색 바꾸기
