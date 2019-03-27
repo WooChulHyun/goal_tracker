@@ -16,7 +16,6 @@
 .grid_sections2 {
     border: 1px solid black;
     position: relative;
-    height: 865px;
 }
 
 .grid_sections3 {
@@ -47,6 +46,11 @@
     /* display: block; */
     visibility: visible;
 }
+
+.total_stamp {
+    margin-bottom: 50px;
+}
+
 .darkblue {
     /* width:500px;
     height:1600px; */

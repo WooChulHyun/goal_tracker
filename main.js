@@ -59,13 +59,11 @@ function listBtnClick() {
         $("progress").replaceWith(
             '<progress value="0" max="' + a + '"></progress>'
         );
-        console.log(a);
         $(document).on("click", ".stamp_container", function() {
             var b = $(".stamp_click").length;
             $("progress").replaceWith(
                 '<progress value="' + b + '"max="' + a + '"></progress>'
             );
-            console.log(b);
         });
     });
 }
@@ -373,16 +371,16 @@ $(".stamp_hedgehog").click(function() {
 
 // 이미지 찾음
 // var b = [];
-// for (var i = 1; i <= content_dict.numbs; i++) {    
-    // if (
-    //     $("." + i)
-    //         .children("img")
-    //         .hasClass("stamp_click")
-    // ) {
-    //     b.push(i);
-    // }
+// for (var i = 1; i <= content_dict.numbs; i++) {
+// if (
+//     $("." + i)
+//         .children("img")
+//         .hasClass("stamp_click")
+// ) {
+//     b.push(i);
+// }
 
-    // ("." + i).hasClass('.stamp_click')
+// ("." + i).hasClass('.stamp_click')
 // }
 
 //  로컬 스토리지에 이미지 저장
@@ -397,15 +395,16 @@ localStorage.setItem("img_url", a);
 // }
 //로컬에 a 값을 담기
 
-
 // 넣었던 수에 클래스 넣기
 b = [1, 2, 3, 7];
-    console.log(b);
-        for(i=0; i < b.length; i++){
-            console.log(i);
-            c = b[i];
-            console.log(b[i]);
-            console.log(c);
-            console.log($('.1'))
-            $("." + c).children("img").addClass("stamp_click");
-        };
+console.log(b);
+for (i = 0; i < b.length; i++) {
+    console.log(i);
+    c = b[i];
+    console.log(b[i]);
+    console.log(c);
+    console.log($(".1"));
+    $("." + c)
+        .children("img")
+        .addClass("stamp_click");
+}
