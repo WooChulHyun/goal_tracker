@@ -4,7 +4,7 @@
     grid-template-columns: 0.8fr 3fr 1fr;
 }
 /* 성과, 리워드 메뉴바 */
-.bottom_bar{
+.bottom_bar {
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -147,4 +147,4 @@
     100% {
         width: 80%;
     }
-} 
+}
