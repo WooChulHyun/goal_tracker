@@ -46,6 +46,20 @@ function listBtnClick() {
                     .addClass("stamp_click");
             }
         });
+        $("#mygoal").html(content_dict.goals);
+        $("#myreward").html(content_dict.rewards);
+        var a = $(".stamp_container").length;
+        $("progress").replaceWith(
+            '<progress value="0" max="' + a + '"></progress>'
+        );
+        console.log(a);
+        $(document).on("click", ".stamp_container", function() {
+            var b = $(".stamp_click").length;
+            $("progress").replaceWith(
+                '<progress value="' + b + '"max="' + a + '"></progress>'
+            );
+            console.log(b);
+        });
     });
 }
 
@@ -127,7 +141,6 @@ $(".submitbtn").click(function(e) {
                     "</div>"
             );
         }
-
 
         $(".stamp_container").click(function() {
             if (
