@@ -19,10 +19,7 @@ function listBtnClick() {
 
         document.getElementsByClassName("grid_sections2")[0].id =
             content_dict["color"];
-        console.log(content_dict, content_dict["color"]);
 
-        console.log(content_dict);
-        console.log(typeof content_dict);
         var $list1 = $(".total_stamp").empty();
         for (i = 1; i <= content_dict.numbs; i++) {
             $(".total_stamp").append(
@@ -57,13 +54,11 @@ function listBtnClick() {
         $("progress").replaceWith(
             '<progress value="0" max="' + a + '"></progress>'
         );
-        console.log(a);
         $(document).on("click", ".stamp_container", function() {
             var b = $(".stamp_click").length;
             $("progress").replaceWith(
                 '<progress value="' + b + '"max="' + a + '"></progress>'
             );
-            console.log(b);
         });
     });
 }
