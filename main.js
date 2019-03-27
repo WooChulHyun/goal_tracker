@@ -3,6 +3,19 @@ $(document).ready(function() {
     color_load();
 });
 
+var find_image = function(){
+    var image = [];
+    for (var i = 1; i <= content_dict.numbs; i++) {
+        // 이미지 찾음
+        if (
+            $("." + i).children("img").hasClass("stamp_click")
+        ) {
+            image.push(i);
+        }
+        // 찾은 이미지의 번호들을 로컬에 저장
+    }
+    console.log(image);
+}
 //form 구현
 function listBtnClick() {
     $(".itemList").click(function() {
@@ -38,6 +51,7 @@ function listBtnClick() {
                     "</div>"
             );
         }
+        
         $(".stamp_container").click(function() {
             if (
                 $(this)
@@ -47,14 +61,17 @@ function listBtnClick() {
                 $(this)
                     .find(".stamp")
                     .removeClass("stamp_click");
+                    find_image();
             } else {
                 $(this)
                     .find(".stamp")
                     .addClass("stamp_click");
+                    find_image();
             }
         });
         $("#mygoal").html(content_dict.goals);
         $("#myreward").html(content_dict.rewards);
+        // 성취도 그래프
         var a = $(".stamp_container").length;
         $("progress").replaceWith(
             '<progress value="0" max="' + a + '"></progress>'
@@ -77,7 +94,7 @@ function closebtn() {
 $(".form").submit(function(e) {
     e.preventDefault();
 });
-
+// pop 제출 시 알림
 $(".submitbtn").click(function(e) {
     if (
         document.getElementsByTagName("input").goals.value === "" &&
@@ -99,27 +116,6 @@ $(".submitbtn").click(function(e) {
                 return false;
             }
         }
-
-        //     //배경 색 저장
-        // function color_save(){
-        //     var x = document.getElementsByClassName('grid_sections2')[0].id;
-        //     console.log(x);
-        //     var cc_cont = {0 : x};
-        //     var color_content = JSON.stringify(cc_cont)
-        //     localStorage.setItem("colorinfo",color_content);
-        //     return false;
-        //     }
-
-        // //배경 색 로드
-        // function color_load(){
-
-        //     var y = localStorage.getItem("colorinfo");
-        //     console.log(y);
-        //     var loadcolor=JSON.parse(y);
-        //     console.log(loadcolor[0]);
-        //     document.getElementsByClassName('grid_sections2')[0].id = loadcolor[0];
-
-        //     }
 
         // $(document).on("click",".btn-size",function(){
 
@@ -158,13 +154,12 @@ $(".submitbtn").click(function(e) {
         $elem.find(".item-no").html("목표" + $(".itemList").length);
         $elem.find(".item-name").html(content_dict.goals);
         $elem.addClass("num_of_items" + $(".itemList").length);
-        //$elem
-        //    .find(".item-detail")
-        //    .html(content_dict.numbs, content_dict.months);
+
 
         $list.append($elem);
         listBtnClick();
 
+        // 스탬프 container 추가
         for (i = 1; i <= content_dict.numbs; i++) {
             $(".total_stamp").append(
                 '<div class="stamp_container ' +
@@ -178,7 +173,9 @@ $(".submitbtn").click(function(e) {
             );
         }
 
+
         $(".stamp_container").click(function() {
+            console.log("asd")
             if (
                 $(this)
                     .find(".stamp")
@@ -187,30 +184,21 @@ $(".submitbtn").click(function(e) {
                 $(this)
                     .find(".stamp")
                     .removeClass("stamp_click");
+                    find_image();
             } else {
                 $(this)
                     .find(".stamp")
                     .addClass("stamp_click");
+                    find_image();
             }
-            console.log(
-                $(".1")
-                    .children("img")
-                    .hasClass("stamp_click")
-            );
+            // console.log(
+            //     $(".1")
+            //         .children("img")
+            //         .hasClass("stamp_click")
+            //);
             // 이미지 찾는 변수 저장
-            var b = [];
-            for (var i = 1; i <= content_dict.numbs; i++) {
-                // 이미지 찾음
-                if (
-                    $("." + i)
-                        .children("img")
-                        .hasClass("stamp_click")
-                ) {
-                    b.push(i);
-                }
-                // 찾은 이미지의 번호들을 로컬에 저장
-            }
-            console.log(b);
+            
+            
         });
     }
 });
@@ -251,10 +239,6 @@ $(function() {
         $elem.find(".item-no").html("목표" + $(".itemList").length);
         $elem.find(".item-name").html(content_dict.goals);
         $elem.addClass("num_of_items" + $(".itemList").length);
-        //$elem
-        //    .find(".item-detail")
-        //    .html(content_dict.numbs, content_dict.months);
-
         $list.append($elem);
     }
 
@@ -262,77 +246,77 @@ $(function() {
 });
 
 // 배경화면 색 바꾸기
-$(".pink").click(function() {
-    $(".grid_sections2").attr("id", "pink");
-    var goalName = $(".grid_sections2")
-        .find("#mygoal")
-        .text();
-    var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title);
+    $(".pink").click(function() {
+        $(".grid_sections2").attr("id", "pink");
+        var goalName = $(".grid_sections2")
+            .find("#mygoal")
+            .text();
+        var title = JSON.parse(localStorage.getItem(goalName));
+        console.log(title);
 
-    localStorage.setItem(
-        goalName,
-        JSON.stringify({
-            ...title,
-            color: "pink"
-        })
-    );
-    localStorage.removeItem("");
-});
+        localStorage.setItem(
+            goalName,
+            JSON.stringify({
+                ...title,
+                color: "pink"
+            })
+        );
+        localStorage.removeItem("");
+    });
 
-$(".green").click(function() {
-    $(".grid_sections2").attr("id", "green");
-    var goalName = $(".grid_sections2")
-        .find("#mygoal")
-        .text();
-    var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title);
+    $(".green").click(function() {
+        $(".grid_sections2").attr("id", "green");
+        var goalName = $(".grid_sections2")
+            .find("#mygoal")
+            .text();
+        var title = JSON.parse(localStorage.getItem(goalName));
+        console.log(title);
 
-    localStorage.setItem(
-        goalName,
-        JSON.stringify({
-            ...title,
-            color: "green"
-        })
-    );
-    localStorage.removeItem("");
-});
+        localStorage.setItem(
+            goalName,
+            JSON.stringify({
+                ...title,
+                color: "green"
+            })
+        );
+        localStorage.removeItem("");
+    });
 
-$(".yellow").click(function() {
-    $(".grid_sections2").attr("id", "yellow");
-    var goalName = $(".grid_sections2")
-        .find("#mygoal")
-        .text();
-    var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title);
+    $(".yellow").click(function() {
+        $(".grid_sections2").attr("id", "yellow");
+        var goalName = $(".grid_sections2")
+            .find("#mygoal")
+            .text();
+        var title = JSON.parse(localStorage.getItem(goalName));
+        console.log(title);
 
-    localStorage.setItem(
-        goalName,
-        JSON.stringify({
-            ...title,
-            color: "yellow"
-        })
-    );
-    localStorage.removeItem("");
-});
+        localStorage.setItem(
+            goalName,
+            JSON.stringify({
+                ...title,
+                color: "yellow"
+            })
+        );
+        localStorage.removeItem("");
+    });
 
-$(".blue").click(function() {
-    $(".grid_sections2").attr("id", "blue");
-    var goalName = $(".grid_sections2")
-        .find("#mygoal")
-        .text();
-    var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title);
+    $(".blue").click(function() {
+        $(".grid_sections2").attr("id", "blue");
+        var goalName = $(".grid_sections2")
+            .find("#mygoal")
+            .text();
+        var title = JSON.parse(localStorage.getItem(goalName));
+        console.log(title);
 
-    localStorage.setItem(
-        goalName,
-        JSON.stringify({
-            ...title,
-            color: "blue"
-        })
-    );
-    localStorage.removeItem("");
-});
+        localStorage.setItem(
+            goalName,
+            JSON.stringify({
+                ...title,
+                color: "blue"
+            })
+        );
+        localStorage.removeItem("");
+    });
 
 // 이미지 경로 저장 test
 var ab = function() {
@@ -341,35 +325,35 @@ var ab = function() {
 };
 
 //  스탬프 바꾸기
-$(".stamp_sun").click(function() {
-    $(".stamp").attr("src", "/sun.png");
-    ab();
-});
+    $(".stamp_sun").click(function() {
+        $(".stamp").attr("src", "/sun.png");
+        ab();
+    });
 
-$(".stamp_monkey").click(function() {
-    $(".stamp").attr("src", "/monkey.png");
-    ab();
-});
+    $(".stamp_monkey").click(function() {
+        $(".stamp").attr("src", "/monkey.png");
+        ab();
+    });
 
-$(".stamp_bear").click(function() {
-    $(".stamp").attr("src", "/bear.png");
-    ab();
-});
+    $(".stamp_bear").click(function() {
+        $(".stamp").attr("src", "/bear.png");
+        ab();
+    });
 
-$(".stamp_ducky").click(function() {
-    $(".stamp").attr("src", "/ducky.png");
-    ab();
-});
+    $(".stamp_ducky").click(function() {
+        $(".stamp").attr("src", "/ducky.png");
+        ab();
+    });
 
-$(".stamp_fox").click(function() {
-    $(".stamp").attr("src", "/fox.png");
-    ab();
-});
+    $(".stamp_fox").click(function() {
+        $(".stamp").attr("src", "/fox.png");
+        ab();
+    });
 
-$(".stamp_hedgehog").click(function() {
-    $(".stamp").attr("src", "/hedgehog.png");
-    ab();
-});
+    $(".stamp_hedgehog").click(function() {
+        $(".stamp").attr("src", "/hedgehog.png");
+        ab();
+    });
 
 // 이미지 찾음
 // var b = [];
@@ -385,8 +369,6 @@ $(".stamp_hedgehog").click(function() {
     // ("." + i).hasClass('.stamp_click')
 // }
 
-//  로컬 스토리지에 이미지 저장
-localStorage.setItem("img_url", a);
 
 // 이미지 url 가져오기
 
