@@ -1,3 +1,10 @@
+//새로고침 시 자동으로 로드 할 정보
+$(document).ready(function(){
+    color_load();
+});
+
+
+
 //form 구현
 function listBtnClick() {
     $(".itemList").click(function() {
@@ -18,6 +25,48 @@ function listBtnClick() {
         }
         console.log(content_dict);
         console.log(typeof content_dict);
+        var $list = $(".total_stamp").empty();
+        for (i = 1; i <= content_dict.numbs; i++) {
+            $(".total_stamp").append(
+                '<div class="stamp_container ' +
+                    i +
+                    '">' +
+                    '<p class="number">' +
+                    i +
+                    "</p>" +
+                    '<img class="stamp" src="/sun.png" alt="">' +
+                    "</div>"
+            );
+        }
+        $(".stamp_container").click(function() {
+            if (
+                $(this)
+                    .find(".stamp")
+                    .hasClass("stamp_click")
+            ) {
+                $(this)
+                    .find(".stamp")
+                    .removeClass("stamp_click");
+            } else {
+                $(this)
+                    .find(".stamp")
+                    .addClass("stamp_click");
+            }
+        });
+        $("#mygoal").html(content_dict.goals);
+        $("#myreward").html(content_dict.rewards);
+        var a = $(".stamp_container").length;
+        $("progress").replaceWith(
+            '<progress value="0" max="' + a + '"></progress>'
+        );
+        console.log(a);
+        $(document).on("click", ".stamp_container", function() {
+            var b = $(".stamp_click").length;
+            $("progress").replaceWith(
+                '<progress value="' + b + '"max="' + a + '"></progress>'
+            );
+            console.log(b);
+        });
     });
 }
 
@@ -100,7 +149,6 @@ $(".submitbtn").click(function(e) {
             );
         }
 
-
         $(".stamp_container").click(function() {
             if (
                 $(this)
@@ -168,18 +216,22 @@ $(function() {
 // 배경화면 색 바꾸기
 $(".pink").click(function() {
     $(".grid_sections2").attr("id", "pink");
+    color_save();
 });
 
 $(".green").click(function() {
     $(".grid_sections2").attr("id", "green");
+    color_save();
 });
 
 $(".yellow").click(function() {
     $(".grid_sections2").attr("id", "yellow");
+    color_save();
 });
 
 $(".blue").click(function() {
     $(".grid_sections2").attr("id", "blue");
+    color_save();
 });
 
 //  스탬프 바꾸기
@@ -207,3 +259,24 @@ $(".stamp_hedgehog").click(function() {
     $(".stamp").attr("src", "/hedgehog.png");
 });
 
+
+//배경 색 저장 -> 로컬에 따로 저장
+function color_save(){
+    var x = document.getElementsByClassName('grid_sections2')[0].id;
+    console.log(x);
+    var cc_cont = {0 : x};
+    var color_content = JSON.stringify(cc_cont)
+    localStorage.setItem("colorinfo",color_content);
+    return false;
+    }
+
+//배경 색 로드
+function color_load(){
+
+    var y = localStorage.getItem("colorinfo");
+    console.log(y);
+    var loadcolor=JSON.parse(y);
+    console.log(loadcolor[0]);
+    document.getElementsByClassName('grid_sections2')[0].id = loadcolor[0];
+    
+    }
