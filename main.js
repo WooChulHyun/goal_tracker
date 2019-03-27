@@ -1,3 +1,9 @@
+
+//새로고침 시 자동으로 로드 할 정보
+$(document).ready(function() {
+    color_load();
+});
+
 //form 구현
 function listBtnClick() {
     
@@ -21,7 +27,7 @@ function listBtnClick() {
         }
         console.log(content_dict);
         console.log(typeof content_dict);
-        var $list = $(".total_stamp").empty();
+        var $list1 = $(".total_stamp").empty();
         for (i = 1; i <= content_dict.numbs; i++) {
             $(".total_stamp").append(
                 '<div class="stamp_container ' +
@@ -149,6 +155,7 @@ $(".submitbtn").click(function(e) {
        
         console.log(content_dict);
         var $list = $(".goal_list");
+        var $list1 = $(".total_stamp").empty();
         var $elem = $("#item-template")
             .clone()
             .removeAttr("id");
@@ -317,4 +324,24 @@ $(".stamp_fox").click(function() {
 $(".stamp_hedgehog").click(function() {
     $(".stamp").attr("src", "/hedgehog.png");
 });
+
+
+//배경 색 저장
+function color_save() {
+    var x = document.getElementsByClassName("grid_sections2")[0].id;
+    console.log(x);
+    var cc_cont = { 0: x };
+    var color_content = JSON.stringify(cc_cont);
+    localStorage.setItem("colorinfo", color_content);
+    return false;
+}
+
+//배경 색 로드
+function color_load() {
+    var y = localStorage.getItem("colorinfo");
+    console.log(y);
+    var loadcolor = JSON.parse(y);
+    console.log(loadcolor[0]);
+    document.getElementsByClassName("grid_sections2")[0].id = loadcolor[0];
+}
 
