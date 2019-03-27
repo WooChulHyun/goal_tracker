@@ -1,3 +1,8 @@
+//새로고침 시 자동으로 로드 할 정보
+$(document).ready(function() {
+    color_load();
+});
+
 //form 구현
 function listBtnClick() {
     $(".itemList").click(function() {
@@ -16,10 +21,10 @@ function listBtnClick() {
                 delete content_dict[key];
             }
         }
-
         document.getElementsByClassName("grid_sections2")[0].id =
-            content_dict["color"];
-
+        content_dict["color"];
+        console.log(content_dict);
+        console.log(typeof content_dict);
         var $list1 = $(".total_stamp").empty();
         for (i = 1; i <= content_dict.numbs; i++) {
             $(".total_stamp").append(
@@ -54,11 +59,13 @@ function listBtnClick() {
         $("progress").replaceWith(
             '<progress value="0" max="' + a + '"></progress>'
         );
+        console.log(a);
         $(document).on("click", ".stamp_container", function() {
             var b = $(".stamp_click").length;
             $("progress").replaceWith(
                 '<progress value="' + b + '"max="' + a + '"></progress>'
             );
+            console.log(b);
         });
     });
 }
@@ -185,6 +192,24 @@ $(".submitbtn").click(function(e) {
                     .find(".stamp")
                     .addClass("stamp_click");
             }
+            console.log(
+                $(".1")
+                    .children("img")
+                    .hasClass("stamp_click")
+            );
+            var b = [];
+            for (var i = 1; i <= content_dict.numbs; i++) {
+                // 이미지 찾음
+                if (
+                    $("." + i)
+                        .children("img")
+                        .hasClass("stamp_click")
+                ) {
+                    b.push(i);
+                }
+                // 찾은 이미지의 번호들을 로컬에 저장
+            }
+            console.log(b);
         });
     }
 });
@@ -304,27 +329,63 @@ $(".blue").click(function() {
     );
 });
 
+// 이미지 경로 저장 test
+var ab = function() {
+    var stamp_save = $(".stamp").attr("src");
+    console.log(stamp_save);
+};
+
 //  스탬프 바꾸기
 $(".stamp_sun").click(function() {
     $(".stamp").attr("src", "/sun.png");
+    ab();
 });
 
 $(".stamp_monkey").click(function() {
     $(".stamp").attr("src", "/monkey.png");
+    ab();
 });
 
 $(".stamp_bear").click(function() {
     $(".stamp").attr("src", "/bear.png");
+    ab();
 });
 
 $(".stamp_ducky").click(function() {
     $(".stamp").attr("src", "/ducky.png");
+    ab();
 });
 
 $(".stamp_fox").click(function() {
     $(".stamp").attr("src", "/fox.png");
+    ab();
 });
 
 $(".stamp_hedgehog").click(function() {
     $(".stamp").attr("src", "/hedgehog.png");
+    ab();
 });
+
+//
+var b = [];
+for (var i = 1; i <= content_dict.numbs; i++) {
+    // 이미지 찾음
+    $(("." + i).hasClass(".stamp_click"));
+    // 찾은 이미지의 번호들을 로컬에 저장
+    b += i;
+    console.log(b);
+
+    // ("." + i).hasClass('.stamp_click')
+}
+
+//  로컬 스토리지에 이미지 저장
+localStorage.setItem("img_url", a);
+
+// 이미지 url 가져오기
+
+//변수 a에 이미지의 경로 담기
+// var ab = function (){
+// var a = $('.stamp').attr('src');
+// console.log(a);
+// }
+//로컬에 a 값을 담기
