@@ -197,6 +197,7 @@ $(".submitbtn").click(function(e) {
                     .children("img")
                     .hasClass("stamp_click")
             );
+            // 이미지 찾는 변수 저장
             var b = [];
             for (var i = 1; i <= content_dict.numbs; i++) {
                 // 이미지 찾음
@@ -366,17 +367,19 @@ $(".stamp_hedgehog").click(function() {
     ab();
 });
 
-//
-var b = [];
-for (var i = 1; i <= content_dict.numbs; i++) {
-    // 이미지 찾음
-    $(("." + i).hasClass(".stamp_click"));
-    // 찾은 이미지의 번호들을 로컬에 저장
-    b += i;
-    console.log(b);
+// 이미지 찾음
+// var b = [];
+// for (var i = 1; i <= content_dict.numbs; i++) {    
+    // if (
+    //     $("." + i)
+    //         .children("img")
+    //         .hasClass("stamp_click")
+    // ) {
+    //     b.push(i);
+    // }
 
     // ("." + i).hasClass('.stamp_click')
-}
+// }
 
 //  로컬 스토리지에 이미지 저장
 localStorage.setItem("img_url", a);
@@ -389,3 +392,16 @@ localStorage.setItem("img_url", a);
 // console.log(a);
 // }
 //로컬에 a 값을 담기
+
+
+// 넣었던 수에 클래스 넣기
+b = [1, 2, 3, 7];
+    console.log(b);
+        for(i=0; i < b.length; i++){
+            console.log(i);
+            c = b[i];
+            console.log(b[i]);
+            console.log(c);
+            console.log($('.1'))
+            $("." + c).children("img").addClass("stamp_click");
+        };
