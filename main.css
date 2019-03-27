@@ -1,7 +1,13 @@
 #my_container {
     display: grid;
-    height: 920px;
+    height: 865px;
     grid-template-columns: 0.8fr 3fr 1fr;
+}
+/* 성과, 리워드 메뉴바 */
+.bottom_bar{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 .grid_sections1 {
     border: 1px solid black;
@@ -9,6 +15,8 @@
 
 .grid_sections2 {
     border: 1px solid black;
+    position: relative;
+    height: 865px;
 }
 
 .grid_sections3 {
