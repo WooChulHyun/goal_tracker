@@ -1,3 +1,10 @@
+//새로고침 시 자동으로 로드 할 정보
+$(document).ready(function(){
+    color_load();
+});
+
+
+
 //form 구현
 function listBtnClick() {
     $(".itemList").click(function() {
@@ -209,18 +216,22 @@ $(function() {
 // 배경화면 색 바꾸기
 $(".pink").click(function() {
     $(".grid_sections2").attr("id", "pink");
+    color_save();
 });
 
 $(".green").click(function() {
     $(".grid_sections2").attr("id", "green");
+    color_save();
 });
 
 $(".yellow").click(function() {
     $(".grid_sections2").attr("id", "yellow");
+    color_save();
 });
 
 $(".blue").click(function() {
     $(".grid_sections2").attr("id", "blue");
+    color_save();
 });
 
 //  스탬프 바꾸기
@@ -247,3 +258,25 @@ $(".stamp_fox").click(function() {
 $(".stamp_hedgehog").click(function() {
     $(".stamp").attr("src", "/hedgehog.png");
 });
+
+
+//배경 색 저장
+function color_save(){
+    var x = document.getElementsByClassName('grid_sections2')[0].id;
+    console.log(x);
+    var cc_cont = {0 : x};
+    var color_content = JSON.stringify(cc_cont)
+    localStorage.setItem("colorinfo",color_content);
+    return false;
+    }
+
+//배경 색 로드
+function color_load(){
+
+    var y = localStorage.getItem("colorinfo");
+    console.log(y);
+    var loadcolor=JSON.parse(y);
+    console.log(loadcolor[0]);
+    document.getElementsByClassName('grid_sections2')[0].id = loadcolor[0];
+    
+    }
