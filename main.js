@@ -70,12 +70,6 @@ $(".submitbtn").click(function(e) {
     } else if (document.getElementsByTagName("input").rewards.value === "") {
         alert("리워드를 입력해주세요");
         e.preventDefault();
-    } else if (
-        document.getElementsByTagName("input").numbs.value !== "" &&
-        document.getElementsByTagName("input").months.value !== ""
-    ) {
-        alert("횟수 또는 월중 하나만 선택해 주세요");
-        e.preventDefault();
     } else {
         var storage_key = $("#goals").val();
         for (var i = 0; i <= localStorage.length; i++) {
@@ -89,7 +83,6 @@ $(".submitbtn").click(function(e) {
         content["goals"] = $("#goals").val();
         content["rewards"] = $("#rewards").val();
         content["numbs"] = $("#numbs").val();
-        content["months"] = $("#months").val();
         console.log(content);
         var content_string = JSON.stringify(content);
 
@@ -134,6 +127,7 @@ $(".submitbtn").click(function(e) {
                     "</div>"
             );
         }
+
 
         $(".stamp_container").click(function() {
             if (
@@ -195,10 +189,6 @@ $(function() {
 
         $list.append($elem);
     }
-
-    // $("#btn_sub1").click(function() {
-
-    // });
 
     listBtnClick();
 });
