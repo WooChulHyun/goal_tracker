@@ -3,7 +3,7 @@ $(document).ready(function() {
     color_load();
 });
 
-var find_image = function() {
+var find_image = function(localStorage_key) {
     var image = [];
     for (var i = 1; i <= content_dict.numbs; i++) {
         // 이미지 찾음
@@ -17,6 +17,12 @@ var find_image = function() {
         // 찾은 이미지의 번호들을 로컬에 저장
     }
     console.log(image);
+    var content_string_load = localStorage.getItem(localStorage_key);
+    content_dict = JSON.parse(content_string_load);
+    content_dict["image"] = image;
+    var content_string = JSON.stringify(content_dict);
+    localStorage.setItem(localStorage_key, content_string);
+    console.log(content_dict);
 };
 //form 구현
 function listBtnClick() {
@@ -64,12 +70,12 @@ function listBtnClick() {
                 $(this)
                     .find(".stamp")
                     .removeClass("stamp_click");
-                find_image();
+                find_image(localStorage_key);
             } else {
                 $(this)
                     .find(".stamp")
                     .addClass("stamp_click");
-                find_image();
+                find_image(localStorage_key);
             }
         });
         $("#mygoal").html(content_dict.goals);
@@ -184,12 +190,12 @@ $(".submitbtn").click(function(e) {
                 $(this)
                     .find(".stamp")
                     .removeClass("stamp_click");
-                find_image();
+                find_image(content_dict.goals);
             } else {
                 $(this)
                     .find(".stamp")
                     .addClass("stamp_click");
-                find_image();
+                find_image(content_dict.goals);
             }
             // console.log(
             //     $(".1")
@@ -377,15 +383,15 @@ $(".stamp_hedgehog").click(function() {
 //로컬에 a 값을 담기
 
 // 넣었던 수에 클래스 넣기
-b = [1, 2, 3, 7];
-console.log(b);
-for (i = 0; i < b.length; i++) {
-    console.log(i);
-    c = b[i];
-    console.log(b[i]);
-    console.log(c);
-    console.log($(".1"));
-    $("." + c)
-        .children("img")
-        .addClass("stamp_click");
-}
+//b = [1, 2, 3, 7];
+//console.log(b);
+//for (i = 0; i < b.length; i++) {
+//    console.log(i);
+//    c = b[i];
+//    console.log(b[i]);
+//    console.log(c);
+//    console.log($(".1"));
+//    $("." + c)
+//        .children("img")
+//        .addClass("stamp_click");
+//}
