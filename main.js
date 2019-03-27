@@ -2,6 +2,7 @@
 function listBtnClick() {
     
     $(".itemList").click(function() {
+        
         document.getElementsByClassName('grid_sections2')[0].id = content_dict["color"];
         var class_names = $(this).attr("class");
         var target_class = class_names.substr(
