@@ -3,19 +3,28 @@ $(document).ready(function() {
     color_load();
 });
 
-var image = [];
-var find_image = function(){
-    image = [];
+var find_image = function(localStorage_key) {
+    var image = [];
     for (var i = 1; i <= content_dict.numbs; i++) {
-        // 이미지 찾음
+        // 스탬프 찍혀있는 네모 개수 세기 - 이미지 찾음
         if (
-            $("." + i).children("img").hasClass("stamp_click")
+            $("." + i)
+                .children("img")
+                .hasClass("stamp_click")
         ) {
             image.push(i);
         }
         // 찾은 이미지의 번호들을 로컬에 저장
     }
-}
+    console.log(image);
+    var content_string_load = localStorage.getItem(localStorage_key);
+    content_dict = JSON.parse(content_string_load);
+    content_dict["image"] = image;
+    var content_string = JSON.stringify(content_dict);
+    localStorage.setItem(localStorage_key, content_string);
+    console.log(content_dict);
+};
+
 
 // 이미지 경로 저장 test
 var ab = function() {
@@ -23,6 +32,7 @@ var ab = function() {
     console.log(stamp_save);
 };
 
+    
 //form 구현
 // listBtnClick 시작
 function listBtnClick() {
@@ -46,6 +56,7 @@ function listBtnClick() {
             content_dict["color"];
         console.log(content_dict);
         console.log(typeof content_dict);
+
         var $list1 = $(".total_stamp").empty();
         for (i = 1; i <= content_dict.numbs; i++) {
             $(".total_stamp").append(
@@ -59,7 +70,7 @@ function listBtnClick() {
                     "</div>"
             );
         }
-        
+
         $(".stamp_container").click(function() {
             if (
                 $(this)
@@ -69,12 +80,12 @@ function listBtnClick() {
                 $(this)
                     .find(".stamp")
                     .removeClass("stamp_click");
-                    find_image();
+                find_image(localStorage_key);
             } else {
                 $(this)
                     .find(".stamp")
                     .addClass("stamp_click");
-                    find_image();
+                find_image(localStorage_key);
             }
         });
         $("#mygoal").html(content_dict.goals);
@@ -84,13 +95,11 @@ function listBtnClick() {
         $("progress").replaceWith(
             '<progress value="0" max="' + a + '"></progress>'
         );
-        console.log(a);
         $(document).on("click", ".stamp_container", function() {
             var b = $(".stamp_click").length;
             $("progress").replaceWith(
                 '<progress value="' + b + '"max="' + a + '"></progress>'
             );
-            console.log(b);
         });
     });
 }
@@ -135,6 +144,7 @@ $(".submitbtn").click(function(e) {
         content["rewards"] = $("#rewards").val();
         content["numbs"] = $("#numbs").val();
         content["color"] = x;
+        content["image"] = [];
 
         console.log(content);
         var content_string = JSON.stringify(content);
@@ -164,7 +174,6 @@ $(".submitbtn").click(function(e) {
         $elem.find(".item-name").html(content_dict.goals);
         $elem.addClass("num_of_items" + $(".itemList").length);
 
-
         $list.append($elem);
         listBtnClick();
 
@@ -182,9 +191,8 @@ $(".submitbtn").click(function(e) {
             );
         }
 
-
         $(".stamp_container").click(function() {
-            console.log("asd")
+            console.log("asd");
             if (
                 $(this)
                     .find(".stamp")
@@ -193,12 +201,12 @@ $(".submitbtn").click(function(e) {
                 $(this)
                     .find(".stamp")
                     .removeClass("stamp_click");
-                    find_image();
+                find_image(content_dict.goals);
             } else {
                 $(this)
                     .find(".stamp")
                     .addClass("stamp_click");
-                    find_image();
+                find_image(content_dict.goals);
             }
             // console.log(
             //     $(".1")
@@ -206,8 +214,6 @@ $(".submitbtn").click(function(e) {
             //         .hasClass("stamp_click")
             //);
             // 이미지 찾는 변수 저장
-            
-            
         });
     }
 });
@@ -255,125 +261,124 @@ $(function() {
 });
 
 // 배경화면 색 바꾸기
-    $(".pink").click(function() {
-        $(".grid_sections2").attr("id", "pink");
-        var goalName = $(".grid_sections2")
-            .find("#mygoal")
-            .text();
-        var title = JSON.parse(localStorage.getItem(goalName));
-        console.log(title);
+$(".pink").click(function() {
+    $(".grid_sections2").attr("id", "pink");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+    console.log(title);
 
-        localStorage.setItem(
-            goalName,
-            JSON.stringify({
-                ...title,
-                color: "pink"
-            })
-        );
-        localStorage.removeItem("");
-    });
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "pink"
+        })
+    );
+    localStorage.removeItem("");
+});
 
-    $(".green").click(function() {
-        $(".grid_sections2").attr("id", "green");
-        var goalName = $(".grid_sections2")
-            .find("#mygoal")
-            .text();
-        var title = JSON.parse(localStorage.getItem(goalName));
-        console.log(title);
+$(".green").click(function() {
+    $(".grid_sections2").attr("id", "green");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+    console.log(title);
 
-        localStorage.setItem(
-            goalName,
-            JSON.stringify({
-                ...title,
-                color: "green"
-            })
-        );
-        localStorage.removeItem("");
-    });
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "green"
+        })
+    );
+    localStorage.removeItem("");
+});
 
-    $(".yellow").click(function() {
-        $(".grid_sections2").attr("id", "yellow");
-        var goalName = $(".grid_sections2")
-            .find("#mygoal")
-            .text();
-        var title = JSON.parse(localStorage.getItem(goalName));
-        console.log(title);
+$(".yellow").click(function() {
+    $(".grid_sections2").attr("id", "yellow");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+    console.log(title);
 
-        localStorage.setItem(
-            goalName,
-            JSON.stringify({
-                ...title,
-                color: "yellow"
-            })
-        );
-        localStorage.removeItem("");
-    });
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "yellow"
+        })
+    );
+    localStorage.removeItem("");
+});
 
-    $(".blue").click(function() {
-        $(".grid_sections2").attr("id", "blue");
-        var goalName = $(".grid_sections2")
-            .find("#mygoal")
-            .text();
-        var title = JSON.parse(localStorage.getItem(goalName));
-        console.log(title);
+$(".blue").click(function() {
+    $(".grid_sections2").attr("id", "blue");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+    console.log(title);
 
-        localStorage.setItem(
-            goalName,
-            JSON.stringify({
-                ...title,
-                color: "blue"
-            })
-        );
-        localStorage.removeItem("");
-    });
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "blue"
+        })
+    );
+    localStorage.removeItem("");
+});
 
 
 
 //  스탬프 바꾸기
-    $(".stamp_sun").click(function() {
-        $(".stamp").attr("src", "/sun.png");
-        ab();
-    });
+$(".stamp_sun").click(function() {
+    $(".stamp").attr("src", "/sun.png");
+    ab();
+});
 
-    $(".stamp_monkey").click(function() {
-        $(".stamp").attr("src", "/monkey.png");
-        ab();
-    });
+$(".stamp_monkey").click(function() {
+    $(".stamp").attr("src", "/monkey.png");
+    ab();
+});
 
-    $(".stamp_bear").click(function() {
-        $(".stamp").attr("src", "/bear.png");
-        ab();
-    });
+$(".stamp_bear").click(function() {
+    $(".stamp").attr("src", "/bear.png");
+    ab();
+});
 
-    $(".stamp_ducky").click(function() {
-        $(".stamp").attr("src", "/ducky.png");
-        ab();
-    });
+$(".stamp_ducky").click(function() {
+    $(".stamp").attr("src", "/ducky.png");
+    ab();
+});
 
-    $(".stamp_fox").click(function() {
-        $(".stamp").attr("src", "/fox.png");
-        ab();
-    });
+$(".stamp_fox").click(function() {
+    $(".stamp").attr("src", "/fox.png");
+    ab();
+});
 
-    $(".stamp_hedgehog").click(function() {
-        $(".stamp").attr("src", "/hedgehog.png");
-        ab();
-    });
+$(".stamp_hedgehog").click(function() {
+    $(".stamp").attr("src", "/hedgehog.png");
+    ab();
+});
 
 // 이미지 찾음
 // var b = [];
-// for (var i = 1; i <= content_dict.numbs; i++) {    
-    // if (
-    //     $("." + i)
-    //         .children("img")
-    //         .hasClass("stamp_click")
-    // ) {
-    //     b.push(i);
-    // }
-
-    // ("." + i).hasClass('.stamp_click')
+// for (var i = 1; i <= content_dict.numbs; i++) {
+// if (
+//     $("." + i)
+//         .children("img")
+//         .hasClass("stamp_click")
+// ) {
+//     b.push(i);
 // }
 
+// ("." + i).hasClass('.stamp_click')
+// }
 
 // 이미지 url 가져오기
 
@@ -384,15 +389,16 @@ $(function() {
 // }
 //로컬에 a 값을 담기
 
-
 // 넣었던 수에 클래스 넣기
-// b = [1, 2, 3, 7];
-//     console.log(b);
-//         for(i=0; i < b.length; i++){
-//             console.log(i);
-//             c = b[i];
-//             console.log(b[i]);
-//             console.log(c);
-//             console.log($('.1'))
-//             $("." + c).children("img").addClass("stamp_click");
-//         };
+//b = [1, 2, 3, 7];
+//console.log(b);
+//for (i = 0; i < b.length; i++) {
+//    console.log(i);
+//    c = b[i];
+//    console.log(b[i]);
+//    console.log(c);
+//    console.log($(".1"));
+//    $("." + c)
+//        .children("img")
+//        .addClass("stamp_click");
+//}
