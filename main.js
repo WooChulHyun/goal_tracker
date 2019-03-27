@@ -206,3 +206,4 @@ $(".stamp_fox").click(function() {
 $(".stamp_hedgehog").click(function() {
     $(".stamp").attr("src", "/hedgehog.png");
 });
+
