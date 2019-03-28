@@ -142,7 +142,7 @@ h1 {
 }
 
 .itemList:hover {
-    background-color: yellow;
+    background-color: #e9eaec;
     cursor: pointer;
 }
 
