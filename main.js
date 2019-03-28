@@ -1,7 +1,7 @@
 //새로고침 시 자동으로 로드 할 정보
-$(document).ready(function() {
-    color_load();
-});
+// $(document).ready(function() {
+//     color_load();
+// });
 
 var find_image = function(localStorage_key) {
     var image = [];
@@ -25,14 +25,12 @@ var find_image = function(localStorage_key) {
     console.log(content_dict);
 };
 
-
 // 이미지 경로 저장 test
 var ab = function() {
     var stamp_save = $(".stamp").attr("src");
     console.log(stamp_save);
 };
 
-    
 //form 구현
 // listBtnClick 시작
 function listBtnClick() {
@@ -88,8 +86,19 @@ function listBtnClick() {
                 find_image(localStorage_key);
             }
         });
+
+        // console.log(content_dict.image);
+        for (i = 0; i < content_dict.image.length; i++) {
+            // console.log(i);
+            c = content_dict.image[i];
+            $("." + c)
+                .children("img")
+                .addClass("stamp_click");
+        }
+
         $("#mygoal").html(content_dict.goals);
         $("#myreward").html(content_dict.rewards);
+
         // 성취도 그래프
         var a = $(".stamp_container").length;
         $("progress").replaceWith(
@@ -332,8 +341,6 @@ $(".blue").click(function() {
     );
     localStorage.removeItem("");
 });
-
-
 
 //  스탬프 바꾸기
 $(".stamp_sun").click(function() {
