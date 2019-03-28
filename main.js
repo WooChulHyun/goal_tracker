@@ -1,7 +1,7 @@
 //새로고침 시 자동으로 로드 할 정보
-$(document).ready(function() {
-    color_load();
-});
+// $(document).ready(function() {
+//     color_load();
+// });
 
 var find_image = function(localStorage_key) {
     var image = [];
@@ -16,23 +16,28 @@ var find_image = function(localStorage_key) {
         }
         // 찾은 이미지의 번호들을 로컬에 저장
     }
-    console.log(image);
+
     var content_string_load = localStorage.getItem(localStorage_key);
     content_dict = JSON.parse(content_string_load);
     content_dict["image"] = image;
+    content_dict["imageName"] = $(".stamp").attr("src");
     var content_string = JSON.stringify(content_dict);
     localStorage.setItem(localStorage_key, content_string);
-    console.log(content_dict);
 };
 
-
-// 이미지 경로 저장 test
+// 이미지 경로 저장 완료
 var ab = function() {
     var stamp_save = $(".stamp").attr("src");
     console.log(stamp_save);
+    var localStorage_key = $("#mygoal").text();
+    console.log($("#mygoal").text());
+    var content_string_load = localStorage.getItem(localStorage_key);
+    content_dict = JSON.parse(content_string_load);
+    content_dict["imageName"] = stamp_save;
+    var content_string = JSON.stringify(content_dict);
+    localStorage.setItem(localStorage_key, content_string);
 };
 
-    
 //form 구현
 // listBtnClick 시작
 function listBtnClick() {
@@ -97,6 +102,7 @@ function listBtnClick() {
         );
         $(document).on("click", ".stamp_container", function() {
             var b = $(".stamp_click").length;
+            confirm.length(b);
             $("progress").replaceWith(
                 '<progress value="' + b + '"max="' + a + '"></progress>'
             );
@@ -145,6 +151,7 @@ $(".submitbtn").click(function(e) {
         content["numbs"] = $("#numbs").val();
         content["color"] = x;
         content["image"] = [];
+        content["imageName"] = "";
 
         console.log(content);
         var content_string = JSON.stringify(content);
@@ -332,8 +339,6 @@ $(".blue").click(function() {
     );
     localStorage.removeItem("");
 });
-
-
 
 //  스탬프 바꾸기
 $(".stamp_sun").click(function() {
