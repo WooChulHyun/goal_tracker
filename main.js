@@ -111,9 +111,14 @@ function listBtnClick() {
         $("progress").replaceWith(
             '<progress value="0" max="' + a + '"></progress>'
         );
+        //$(document).on("click", ".stamp_container", function() {
+        var b = $(".stamp_click").length;
+        $("progress").replaceWith(
+            '<progress value="' + b + '"max="' + a + '"></progress>'
+        );
+        //});
         $(document).on("click", ".stamp_container", function() {
             var b = $(".stamp_click").length;
-            confirm.length(b);
             $("progress").replaceWith(
                 '<progress value="' + b + '"max="' + a + '"></progress>'
             );
