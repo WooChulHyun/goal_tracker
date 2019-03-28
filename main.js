@@ -245,8 +245,14 @@ $(".submitbtn").click(function(e) {
 
 $(".btn-danger").click(function() {
     var localStorage_key = $("#mygoal").text();
-    localStorage.removeItem(localStorage_key);
-    location.reload();
+    if (confirm("정말 삭제합니까?")) {
+        localStorage.removeItem(localStorage_key);
+        location.reload();
+        alert("삭제했습니다");
+    } else {
+        // 취소 버튼 클릭 시 동작
+        alert("동작을 취소했습니다.");
+    }
 });
 
 $("#goalbtn").click(function() {
