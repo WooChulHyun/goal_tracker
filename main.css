@@ -150,3 +150,7 @@
         width: 80%;
     }
 }
+
+#deleteBtn {
+    float: right;
+}
