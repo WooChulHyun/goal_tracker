@@ -28,7 +28,6 @@ var find_image = function(localStorage_key) {
 // 이미지 경로 저장 완료
 var ab = function() {
     var stamp_save = $(".stamp").attr("src");
-    console.log(stamp_save);
     var localStorage_key = $("#mygoal").text();
     var content_string_load = localStorage.getItem(localStorage_key);
     content_dict = JSON.parse(content_string_load);
@@ -58,8 +57,6 @@ function listBtnClick() {
         }
         document.getElementsByClassName("grid_sections2")[0].id =
             content_dict["color"];
-        console.log(content_dict);
-        console.log(typeof content_dict);
 
         var $list1 = $(".total_stamp").empty();
         for (i = 1; i <= content_dict.numbs; i++) {
@@ -93,9 +90,7 @@ function listBtnClick() {
             }
         });
         // stamp 저장, 리스트 클릭시 로드
-        // console.log(content_dict.image);
         for (i = 0; i < content_dict.image.length; i++) {
-            // console.log(i);
             c = content_dict.image[i];
             $("." + c)
                 .children("img")
@@ -161,7 +156,6 @@ $(".submitbtn").click(function(e) {
         // $(document).on("click",".btn-size",function(){
 
         var x = document.getElementsByClassName("grid_sections2")[0].id;
-        console.log(x);
         var content = {};
         content["goals"] = $("#goals").val();
         content["rewards"] = $("#rewards").val();
@@ -170,7 +164,6 @@ $(".submitbtn").click(function(e) {
         content["image"] = [];
         content["imageName"] = "";
 
-        console.log(content);
         var content_string = JSON.stringify(content);
 
         form_content = decodeURIComponent(content_string);
@@ -187,7 +180,6 @@ $(".submitbtn").click(function(e) {
             }
         }
 
-        console.log(content_dict);
         var $list = $(".goal_list");
         var $list1 = $(".total_stamp").empty();
         var $elem = $("#item-template")
@@ -216,7 +208,6 @@ $(".submitbtn").click(function(e) {
         }
 
         $(".stamp_container").click(function() {
-            console.log("asd");
             if (
                 $(this)
                     .find(".stamp")
@@ -286,7 +277,6 @@ $(function() {
                 delete content_dict[key];
             }
         }
-        console.log(content_dict);
         var $list = $(".goal_list");
         var $elem = $("#item-template")
             .clone()
@@ -308,7 +298,6 @@ $(".pink").click(function() {
         .find("#mygoal")
         .text();
     var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title);
 
     localStorage.setItem(
         goalName,
@@ -326,7 +315,6 @@ $(".green").click(function() {
         .find("#mygoal")
         .text();
     var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title);
 
     localStorage.setItem(
         goalName,
@@ -344,7 +332,6 @@ $(".yellow").click(function() {
         .find("#mygoal")
         .text();
     var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title);
 
     localStorage.setItem(
         goalName,
@@ -362,7 +349,6 @@ $(".blue").click(function() {
         .find("#mygoal")
         .text();
     var title = JSON.parse(localStorage.getItem(goalName));
-    console.log(title);
 
     localStorage.setItem(
         goalName,
