@@ -240,6 +240,7 @@ $(".submitbtn").click(function(e) {
             // 이미지 찾는 변수 저장
         });
     }
+    location.reload();
 });
 
 $(".btn-danger").click(function() {
