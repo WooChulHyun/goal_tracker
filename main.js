@@ -93,7 +93,7 @@ function listBtnClick() {
                 find_image(localStorage_key);
             }
         });
-
+        // stamp 저장, 리스트 클릭시 로드
         // console.log(content_dict.image);
         for (i = 0; i < content_dict.image.length; i++) {
             // console.log(i);
@@ -102,6 +102,8 @@ function listBtnClick() {
                 .children("img")
                 .addClass("stamp_click");
         }
+
+        $(".stamp").attr("src", content_dict.imageName);
 
         $("#mygoal").html(content_dict.goals);
         $("#myreward").html(content_dict.rewards);
