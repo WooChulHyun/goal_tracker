@@ -111,9 +111,14 @@ function listBtnClick() {
         $("progress").replaceWith(
             '<progress value="0" max="' + a + '"></progress>'
         );
+        //$(document).on("click", ".stamp_container", function() {
+        var b = $(".stamp_click").length;
+        $("progress").replaceWith(
+            '<progress value="' + b + '"max="' + a + '"></progress>'
+        );
+        //});
         $(document).on("click", ".stamp_container", function() {
             var b = $(".stamp_click").length;
-            confirm.length(b);
             $("progress").replaceWith(
                 '<progress value="' + b + '"max="' + a + '"></progress>'
             );
@@ -395,6 +400,8 @@ $(".stamp_hedgehog").click(function() {
 
 // ("." + i).hasClass('.stamp_click')
 // }
+
+// $(".stamp").attr("src", content_dict.imageName);
 
 // 이미지 url 가져오기
 
