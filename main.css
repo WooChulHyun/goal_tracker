@@ -1,7 +1,13 @@
 #my_container {
     display: grid;
-    height: 920px;
+    height: 865px;
     grid-template-columns: 0.8fr 3fr 1fr;
+}
+/* 성과, 리워드 메뉴바 */
+.bottom_bar {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 .grid_sections1 {
     border: 1px solid black;
@@ -9,6 +15,7 @@
 
 .grid_sections2 {
     border: 1px solid black;
+    position: relative;
 }
 
 .grid_sections3 {
@@ -38,6 +45,9 @@
 .stamp_click {
     /* display: block; */
     visibility: visible;
+}
+.total_stamp {
+    margin-bottom: 50px;
 }
 .darkblue {
     /* width:500px;
@@ -139,4 +149,4 @@
     100% {
         width: 80%;
     }
-} 
+}
