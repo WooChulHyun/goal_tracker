@@ -93,8 +93,19 @@ function listBtnClick() {
                 find_image(localStorage_key);
             }
         });
+
+        // console.log(content_dict.image);
+        for (i = 0; i < content_dict.image.length; i++) {
+            // console.log(i);
+            c = content_dict.image[i];
+            $("." + c)
+                .children("img")
+                .addClass("stamp_click");
+        }
+
         $("#mygoal").html(content_dict.goals);
         $("#myreward").html(content_dict.rewards);
+
         // 성취도 그래프
         var a = $(".stamp_container").length;
         $("progress").replaceWith(
