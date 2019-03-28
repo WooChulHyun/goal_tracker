@@ -37,15 +37,24 @@ h1 {
 
 .grid_sections3 {
     /* border: 1px solid black; */
+    padding: 30px 20px;
 }
 .color_change {
     display: inline-block;
+    padding: 13px 10px;
+}
+.color_change_name {
+    font-size: 18px;
 }
 .stamp_change {
     display: inline-block;
+    margin-top: 30px;
 }
 
 /* 캘린더 내부 스탬프 */
+.stamp_title {
+    font-size: 2em;
+}
 .stamp_container {
     width: 100px;
     height: 120px;
@@ -69,14 +78,18 @@ h1 {
 .darkblue {
     /* width:500px;
     height:1600px; */
-    background-color: rgb(154, 214, 224);
+    background-color: #fee4e3;
 }
 
+.color_title {
+    font-size: 2em;
+}
 .btn-size {
     border: none;
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    margin-right: 20px;
 }
 .pink {
     background-color: #fee4e3;
