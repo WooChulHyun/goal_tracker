@@ -243,15 +243,19 @@ $(".submitbtn").click(function(e) {
     location.reload();
 });
 
-$(".btn-danger").click(function() {
+$(".btn-danger").click(function(e) {
     var localStorage_key = $("#mygoal").text();
-    if (confirm("정말 삭제합니까?")) {
-        localStorage.removeItem(localStorage_key);
-        location.reload();
-        alert("삭제했습니다");
+    if (localStorage_key === "") {
+        e.preventDefault();
     } else {
-        // 취소 버튼 클릭 시 동작
-        alert("동작을 취소했습니다.");
+        if (confirm("정말 삭제합니까?")) {
+            localStorage.removeItem(localStorage_key);
+            location.reload();
+            alert("삭제했습니다");
+        } else {
+            // 취소 버튼 클릭 시 동작
+            alert("동작을 취소했습니다.");
+        }
     }
 });
 
