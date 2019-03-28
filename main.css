@@ -74,8 +74,9 @@ h1 {
 
 .btn-size {
     border: none;
-    width: 90px;
+    width: 50px;
     height: 50px;
+    border-radius: 50%;
 }
 .pink {
     background-color: #fee4e3;
@@ -167,4 +168,12 @@ h1 {
     100% {
         width: 80%;
     }
+}
+
+#deleteBtn {
+    float: right;
+}
+
+.btn-danger {
+    border-radius: 50px;
 }
