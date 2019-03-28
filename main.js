@@ -259,6 +259,7 @@ $(".btn-danger").click(function(e) {
     }
 });
 
+
 $("#goalbtn").click(function() {
     $("#modalbtn").click();
 });
