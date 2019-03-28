@@ -30,7 +30,6 @@ var ab = function() {
     var stamp_save = $(".stamp").attr("src");
     console.log(stamp_save);
     var localStorage_key = $("#mygoal").text();
-    console.log($("#mygoal").text());
     var content_string_load = localStorage.getItem(localStorage_key);
     content_dict = JSON.parse(content_string_load);
     content_dict["imageName"] = stamp_save;
@@ -240,6 +239,18 @@ $(".submitbtn").click(function(e) {
             //);
             // 이미지 찾는 변수 저장
         });
+    }
+});
+
+$(".btn-danger").click(function() {
+    var localStorage_key = $("#mygoal").text();
+    if (confirm("정말 삭제합니까?")) {
+        localStorage.removeItem(localStorage_key);
+        location.reload();
+        alert("삭제했습니다");
+    } else {
+        // 취소 버튼 클릭 시 동작
+        alert("동작을 취소했습니다.");
     }
 });
 
