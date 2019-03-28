@@ -190,3 +190,15 @@ h1 {
 .btn-danger {
     border-radius: 50px;
 }
+
+
+progress[value] {
+    width: 300px;
+    height: 14px;
+    margin: 50px auto;
+    display: block;
+    /* Important Thing */
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+  }
