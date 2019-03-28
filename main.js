@@ -30,7 +30,6 @@ var ab = function() {
     var stamp_save = $(".stamp").attr("src");
     console.log(stamp_save);
     var localStorage_key = $("#mygoal").text();
-    console.log($("#mygoal").text());
     var content_string_load = localStorage.getItem(localStorage_key);
     content_dict = JSON.parse(content_string_load);
     content_dict["imageName"] = stamp_save;
@@ -241,6 +240,12 @@ $(".submitbtn").click(function(e) {
             // 이미지 찾는 변수 저장
         });
     }
+});
+
+$(".btn-danger").click(function() {
+    var localStorage_key = $("#mygoal").text();
+    localStorage.removeItem(localStorage_key);
+    location.reload();
 });
 
 $("#goalbtn").click(function() {
