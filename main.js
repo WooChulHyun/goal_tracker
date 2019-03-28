@@ -102,7 +102,7 @@ function listBtnClick() {
                 .children("img")
                 .addClass("stamp_click");
         }
-
+        // 바뀐 stamp 뿌리기
         $(".stamp").attr("src", content_dict.imageName);
 
         $("#mygoal").html(content_dict.goals);
@@ -195,7 +195,7 @@ $(".submitbtn").click(function(e) {
             .clone()
             .removeAttr("id");
 
-        $elem.find(".item-no").html("목표" + $(".itemList").length);
+        $elem.find(".item-no").html("목표 \u0020" + $(".itemList").length);
         $elem.find(".item-name").html(content_dict.goals);
         $elem.addClass("num_of_items" + $(".itemList").length);
 
@@ -276,7 +276,7 @@ $(function() {
             .clone()
             .removeAttr("id");
 
-        $elem.find(".item-no").html("목표" + $(".itemList").length);
+        $elem.find(".item-no").html("목표 \u0020" + $(".itemList").length);
         $elem.find(".item-name").html(content_dict.goals);
         $elem.addClass("num_of_items" + $(".itemList").length);
         $list.append($elem);
