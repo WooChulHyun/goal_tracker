@@ -154,3 +154,7 @@
 #deleteBtn {
     float: right;
 }
+
+.btn-danger {
+    border-radius: 50px;
+}
