@@ -362,6 +362,75 @@ $(".blue").click(function() {
     );
     localStorage.removeItem("");
 });
+//신규색추가
+
+$(".plum").click(function() {
+    $(".grid_sections2").attr("id", "plum");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "plum"
+        })
+    );
+    localStorage.removeItem("");
+});
+
+$(".lightviolet").click(function() {
+    $(".grid_sections2").attr("id", "lightviolet");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "lightviolet"
+        })
+    );
+    localStorage.removeItem("");
+});
+
+$(".dawn").click(function() {
+    $(".grid_sections2").attr("id", "dawn");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "dawn"
+        })
+    );
+    localStorage.removeItem("");
+});
+
+$(".grayblue").click(function() {
+    $(".grid_sections2").attr("id", "grayblue");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "grayblue"
+        })
+    );
+    localStorage.removeItem("");
+});
 
 //purple
 $(".purple").click(function() {

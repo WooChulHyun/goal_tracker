@@ -117,6 +117,19 @@ h1 {
     background-color: #ff5733;
 }
 
+.plum {
+    background-color: #d597d6;
+}
+.lightviolet {
+    background-color: #a190d4;
+}
+.dawn {
+    background-color: #696ec9;
+}
+.grayblue {
+    background-color: #a7aae1;
+}
+
 #pink {
     background-color: #fee4e3;
 }
@@ -141,6 +154,18 @@ h1 {
 }
 #orange {
     background-color: #ff5733;
+}
+#plum {
+    background-color: #d597d6;
+}
+#lightviolet {
+    background-color: #a190d4;
+}
+#dawn {
+    background-color: #696ec9;
+}
+#grayblue {
+    background-color: #a7aae1;
 }
 
 .stamps {
@@ -218,8 +243,9 @@ h1 {
 }
 
 progress[value] {
-    width: 300px;
-    height: 14px;
+    width: 150px;
+    height: 10px;
+
     display: inline-block;
     /* Important Thing */
     -webkit-appearance: none;
