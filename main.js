@@ -310,7 +310,7 @@ $(".pink").click(function() {
 });
 
 $(".green").click(function() {
-    $(".grid_sections2").attr("id", "green");
+     $(".grid_sections2").attr("id", "green");
     var goalName = $(".grid_sections2")
         .find("#mygoal")
         .text();
@@ -344,7 +344,7 @@ $(".yellow").click(function() {
 });
 
 $(".blue").click(function() {
-    $(".grid_sections2").attr("id", "blue");
+   $(".grid_sections2").attr("id", "blue");
     var goalName = $(".grid_sections2")
         .find("#mygoal")
         .text();
@@ -355,6 +355,76 @@ $(".blue").click(function() {
         JSON.stringify({
             ...title,
             color: "blue"
+        })
+    );
+    localStorage.removeItem("");
+});
+ //신규색추가
+
+$(".plum").click(function() {
+    $(".grid_sections2").attr("id", "plum");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "plum"
+        })
+    );
+    localStorage.removeItem("");
+});
+
+$(".lightviolet").click(function() {
+    $(".grid_sections2").attr("id", "lightviolet");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "lightviolet"
+        })
+    );
+    localStorage.removeItem("");
+});
+
+$(".dawn").click(function() {
+    $(".grid_sections2").attr("id", "dawn");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "dawn"
+        })
+    );
+    localStorage.removeItem("");
+});
+
+
+$(".grayblue").click(function() {
+    $(".grid_sections2").attr("id", "grayblue");
+    var goalName = $(".grid_sections2")
+        .find("#mygoal")
+        .text();
+    var title = JSON.parse(localStorage.getItem(goalName));
+
+    localStorage.setItem(
+        goalName,
+        JSON.stringify({
+            ...title,
+            color: "grayblue"
         })
     );
     localStorage.removeItem("");

@@ -143,6 +143,15 @@
                     style="background-color: #f6f5f2;"
                 >
                     <p style="font-size: 25px; text-align: center">
+<<<<<<< HEAD
+                        achievement :
+                           <progress
+                            value="denominator"
+                            max="molecular"
+                            class="psbar"
+                        > </progress>
+                        
+=======
                         Achievement :
 
                         <progress
@@ -151,9 +160,13 @@
                             id="progressbar"
                         >
                         </progress>
+>>>>>>> 47d1e4905fef0f04156746b6d1373c14ffd3389b
                     </p>
 
                     <br />
+                    
+                    
+                    </script>
 
                     <p style="font-size: 25px">
                         Reward : <span id="myreward"></span>
@@ -176,10 +189,10 @@
                 </div>
                 <div class="color_change">
                     <p class="color_change_name">dusty color</p>
-                    <button class="btn-size pink"></button>
-                    <button class="btn-size green"></button>
-                    <button class="btn-size yellow"></button>
-                    <button class="btn-size blue"></button>
+                    <button class="btn-size plum"></button>
+                    <button class="btn-size lightviolet"></button>
+                    <button class="btn-size dawn"></button>
+                    <button class="btn-size grayblue"></button>
                 </div>
                 <div class="color_change">
                     <p class="color_change_name">default color</p>
@@ -211,7 +224,7 @@
                 $(document).on("click", "#btn_sub1", function() {
                     var a = $(".stamp_container").length;
                     $("progress").replaceWith(
-                        '<progress value="0" max="' + a + '"></progress>'
+                        '<progress value="0" max="' + a + '"  class="psbar"></progress>'
                     );
                     console.log(a);
                     $(document).on("click", ".stamp_container", function() {
@@ -221,7 +234,7 @@
                                 b +
                                 '"max="' +
                                 a +
-                                '"></progress>'
+                                ' class="psbar""></progress>'
                         );
                         console.log(b);
                     });
