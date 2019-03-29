@@ -104,6 +104,19 @@ h1 {
     background-color: rgb(154, 214, 224);
 }
 
+.purple {
+    background-color: #581845;
+}
+.Mulberry {
+    background-color: #900c3f;
+}
+.red {
+    background-color: #c70039;
+}
+.orange {
+    background-color: #ff5733;
+}
+
 #pink {
     background-color: #fee4e3;
 }
@@ -115,6 +128,19 @@ h1 {
 }
 #blue {
     background-color: rgb(154, 214, 224);
+}
+
+#purple {
+    background-color: #581845;
+}
+#Mulberry {
+    background-color: #900c3f;
+}
+#red {
+    background-color: #c70039;
+}
+#orange {
+    background-color: #ff5733;
 }
 
 .stamps {
