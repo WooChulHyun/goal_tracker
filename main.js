@@ -202,7 +202,7 @@ $(".submitbtn").click(function(e) {
                     '<p class="number">' +
                     i +
                     "</p>" +
-                    '<img class="stamp" src="/sun.png" alt="">' +
+                    '<img class="stamp" src="sun.png" alt="">' +
                     "</div>"
             );
         }
@@ -506,32 +506,32 @@ $(".orange").click(function() {
 
 //  스탬프 바꾸기
 $(".stamp_sun").click(function() {
-    $(".stamp").attr("src", "/sun.png");
+    $(".stamp").attr("src", "sun.png");
     ab();
 });
 
 $(".stamp_monkey").click(function() {
-    $(".stamp").attr("src", "/monkey.png");
+    $(".stamp").attr("src", "monkey.png");
     ab();
 });
 
 $(".stamp_bear").click(function() {
-    $(".stamp").attr("src", "/bear.png");
+    $(".stamp").attr("src", "bear.png");
     ab();
 });
 
 $(".stamp_ducky").click(function() {
-    $(".stamp").attr("src", "/ducky.png");
+    $(".stamp").attr("src", "ducky.png");
     ab();
 });
 
 $(".stamp_fox").click(function() {
-    $(".stamp").attr("src", "/fox.png");
+    $(".stamp").attr("src", "fox.png");
     ab();
 });
 
 $(".stamp_hedgehog").click(function() {
-    $(".stamp").attr("src", "/hedgehog.png");
+    $(".stamp").attr("src", "hedgehog.png");
     ab();
 });
 
